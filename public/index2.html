@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>NAGETHA — Free Temporary Email, Disposable Inbox | No Signup</title>
+  <meta name="description" content="Get a free disposable temporary email address instantly. No signup, no spam. Real-time inbox with Nagetha — the fastest throwaway email service." />
+  <meta name="keywords" content="temporary email, disposable email, throwaway email, fake email, temp mail, anonymous email, no signup email, free temporary inbox" />
+  <meta name="author" content="NAGETHA" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#7c3aed" />
+  <link rel="canonical" href="https://nagetha.vtech.biz.id/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nagetha.vtech.biz.id/" />
+  <meta property="og:title" content="NAGETHA — Free Temporary Email, No Signup" />
+  <meta property="og:description" content="Get a free disposable temporary email address instantly. Real-time inbox, no registration required. Protect your privacy with Nagetha." />
+  <meta property="og:image" content="https://nagetha.vtech.biz.id/favicon.svg" />
+  <meta property="og:site_name" content="NAGETHA" />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://nagetha.vtech.biz.id/" />
+  <meta name="twitter:title" content="NAGETHA — Free Temporary Email, No Signup" />
+  <meta name="twitter:description" content="Get a free disposable temporary email address instantly. Real-time inbox, no registration required." />
+  <meta name="twitter:image" content="https://nagetha.vtech.biz.id/favicon.svg" />
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "NAGETHA",
+    "url": "https://nagetha.vtech.biz.id/",
+    "description": "Free disposable temporary email service. Get an instant inbox with no signup, no spam, real-time email delivery.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "featureList": ["Instant temporary email address","Real-time email delivery","No registration required","Custom username support","Multiple domains","Auto-refresh inbox"]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080812;
+      --bg-card: #10101e;
+      --border: rgba(255,255,255,0.08);
+      --border-active: rgba(167,139,250,0.5);
+      --text: #f0f0ff;
+      --text-2: #9090b8;
+      --text-3: #4a4a70;
+      --accent: #7c3aed;
+      --accent-2: #a78bfa;
+      --accent-glow: rgba(124,58,237,0.25);
+      --pink: #f472b6;
+      --pink-bg: rgba(244,114,182,0.12);
+      --pink-border: rgba(244,114,182,0.25);
+      --success: #34d399;
+      --danger: #f87171;
+      --warning: #fbbf24;
+      --mono: "JetBrains Mono", monospace;
+      --sans: "Nunito", system-ui, sans-serif;
+      --radius: 14px;
+      --radius-lg: 20px;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── BG CANVAS ── */
+    .bg-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .bg-canvas::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(167,139,250,0.07) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    .bg-canvas::after {
+      content: "";
+      position: absolute;
+      top: -30%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1000px;
+      height: 600px;
+      background: radial-gradient(ellipse at 50% 0%,
+        rgba(124,58,237,0.2) 0%,
+        rgba(244,114,182,0.08) 40%,
+        transparent 70%);
+      animation: beamFloat 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes beamFloat {
+      0%   { transform: translateX(-50%) translateY(0) scale(1); }
+      100% { transform: translateX(-50%) translateY(24px) scale(1.04); }
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+    }
+    .orb-1 {
+      width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(124,58,237,0.14) 0%, transparent 70%);
+      top: -8%; left: -12%;
+      animation: orbFloat 22s ease-in-out infinite alternate;
+    }
+    .orb-2 {
+      width: 380px; height: 380px;
+      background: radial-gradient(circle, rgba(244,114,182,0.1) 0%, transparent 70%);
+      top: 25%; right: -8%;
+      animation: orbFloat 28s ease-in-out infinite alternate-reverse;
+    }
+    .orb-3 {
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%);
+      bottom: 12%; left: 18%;
+      animation: orbFloat 19s ease-in-out infinite alternate;
+    }
+
+    @keyframes orbFloat {
+      0%   { transform: translate(0,0) scale(1); }
+      33%  { transform: translate(18px,-14px) scale(1.03); }
+      66%  { transform: translate(-10px,18px) scale(0.97); }
+      100% { transform: translate(14px,8px) scale(1.02); }
+    }
+
+    /* z-index stack */
+    header, .hero, .address-wrap, .inbox-wrap, .features, footer, .toasts {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(8,8,18,0.75);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-emoji {
+      font-size: 26px;
+      display: inline-block;
+      animation: logoWiggle 3s ease-in-out infinite;
+      transform-origin: bottom center;
+    }
+
+    @keyframes logoWiggle {
+      0%,80%,100% { transform: rotate(0deg); }
+      85%  { transform: rotate(-12deg); }
+      92%  { transform: rotate(10deg); }
+      96%  { transform: rotate(-6deg); }
+    }
+
+    .logo-name {
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      color: var(--text);
+    }
+
+    .logo-name span {
+      color: var(--accent-2);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ── LIVE BADGE ── */
+    .live-badge {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 12px 5px 8px;
+      border-radius: 100px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-3);
+      font-family: var(--sans);
+      transition: all 0.4s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .live-badge.state-on {
+      background: rgba(52,211,153,0.1);
+      border-color: rgba(52,211,153,0.3);
+      color: #34d399;
+      box-shadow: 0 0 12px rgba(52,211,153,0.15);
+    }
+
+    .live-badge.state-connecting {
+      background: rgba(251,191,36,0.08);
+      border-color: rgba(251,191,36,0.3);
+      color: var(--warning);
+    }
+
+    .live-badge.state-offline {
+      background: rgba(248,113,113,0.07);
+      border-color: rgba(248,113,113,0.25);
+      color: var(--danger);
+    }
+
+    .live-icon {
+      position: relative;
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .live-ring {
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      border: 1.5px solid currentColor;
+      opacity: 0;
+    }
+
+    .live-badge.state-on .live-ring {
+      animation: liveRing 2s ease-out infinite;
+      opacity: 1;
+    }
+
+    @keyframes liveRing {
+      0%   { transform: scale(0.7); opacity: 0.8; }
+      100% { transform: scale(1.6); opacity: 0; }
+    }
+
+    .live-dot-new {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+      position: relative;
+      z-index: 1;
+    }
+
+    .live-badge.state-on .live-dot-new {
+      box-shadow: 0 0 5px currentColor;
+    }
+
+    .live-badge.state-connecting .live-dot-new {
+      animation: dotBlink 1s ease-in-out infinite;
+    }
+
+    @keyframes dotBlink { 0%,100%{opacity:1} 50%{opacity:0.25} }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 52px 20px 32px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--warning);
+      background: rgba(251,191,36,0.1);
+      border: 1px solid rgba(251,191,36,0.22);
+      border-radius: 100px;
+      padding: 5px 14px;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: var(--sans);
+      font-size: clamp(26px, 5vw, 44px);
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 14px;
+      line-height: 1.18;
+    }
+
+    .hero-title .pop {
+      color: var(--pink);
+    }
+
+    .hero-title .bounce-word {
+      display: inline-block;
+      color: var(--accent-2);
+      animation: wordBounce 1.6s ease-in-out infinite;
+    }
+
+    @keyframes wordBounce {
+      0%,100% { transform: translateY(0); }
+      45%     { transform: translateY(-8px); }
+      65%     { transform: translateY(-4px); }
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: var(--text-2);
+      max-width: 400px;
+      margin: 0 auto;
+      line-height: 1.75;
+      font-weight: 600;
+    }
+
+    /* ── FEATURES ── */
+    .features {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 20px 32px;
+      flex-wrap: wrap;
+    }
+
+    .feature-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-2);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 5px 12px;
+      transition: all 0.2s;
+    }
+
+    .feature-pill:hover {
+      background: rgba(167,139,250,0.08);
+      border-color: rgba(167,139,250,0.2);
+      color: var(--accent-2);
+      transform: translateY(-2px);
+    }
+
+    /* ── ADDRESS BOX ── */
+    .address-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 0 20px 32px;
+    }
+
+    .address-box {
+      width: 100%;
+      max-width: 620px;
+      background: rgba(16,16,30,0.9);
+      border: 1.5px dashed rgba(167,139,250,0.2);
+      border-radius: var(--radius-lg);
+      padding: 22px 22px 18px;
+      transition: border-color 0.25s, box-shadow 0.25s;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 4px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+
+    .address-box:focus-within {
+      border-color: rgba(167,139,250,0.45);
+      border-style: solid;
+      box-shadow: 0 0 0 3px rgba(124,58,237,0.08), 0 4px 32px rgba(0,0,0,0.35);
+    }
+
+    .address-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 10px;
+    }
+
+    .address-display {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .address-text {
+      flex: 1;
+      font-family: var(--mono);
+      font-size: clamp(13px, 2.5vw, 18px);
+      font-weight: 500;
+      color: var(--accent-2);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .address-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: var(--radius);
+      font-size: 13px;
+      font-weight: 800;
+      font-family: var(--sans);
+      cursor: pointer;
+      border: none;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+
+    .btn:active { transform: scale(0.96); }
+
+    .btn-emoji { font-size: 15px; line-height: 1; }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #7c3aed, #6366f1);
+      color: #fff;
+      box-shadow: 0 2px 12px rgba(124,58,237,0.35);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #8b5cf6, #818cf8);
+      box-shadow: 0 4px 20px rgba(124,58,237,0.45);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,0.06);
+      color: var(--text-2);
+      border: 1px solid var(--border);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.1);
+      color: var(--text);
+      border-color: rgba(255,255,255,0.15);
+    }
+
+    .btn-fun {
+      background: var(--pink-bg);
+      color: var(--pink);
+      border: 1px solid var(--pink-border);
+    }
+
+    .btn-fun:hover {
+      background: rgba(244,114,182,0.2);
+      box-shadow: 0 0 14px rgba(244,114,182,0.2);
+    }
+
+    .btn-danger {
+      background: rgba(248,113,113,0.1);
+      color: var(--danger);
+      border: 1px solid rgba(248,113,113,0.22);
+    }
+
+    .btn-danger:hover {
+      background: var(--danger);
+      color: #fff;
+    }
+
+    .domain-select {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 12px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      outline: none;
+    }
+
+    .domain-select:focus { border-color: var(--border-active); }
+
+    /* ── CUSTOM FORM ── */
+    .custom-form {
+      display: none;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px dashed rgba(255,255,255,0.08);
+    }
+
+    .custom-form.open { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+    .custom-input {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 13px;
+      padding: 8px 12px;
+      border-radius: var(--radius);
+      outline: none;
+      width: 160px;
+    }
+
+    .custom-input:focus { border-color: var(--border-active); }
+
+    .at-sym { color: var(--pink); font-weight: 800; font-size: 15px; }
+
+    /* ── INBOX ── */
+    .inbox-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px 56px;
+    }
+
+    .inbox-container {
+      width: 100%;
+      max-width: 620px;
+    }
+
+    .inbox-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .inbox-count {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--text-3);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ── EMAIL CARDS ── */
+    .email-card {
+      background: rgba(16,16,30,0.85);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 15px 18px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: all 0.18s;
+      backdrop-filter: blur(8px);
+    }
+
+    .email-card:hover {
+      border-color: rgba(167,139,250,0.2);
+      background: rgba(124,58,237,0.06);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    .email-card.unread { border-left: 3px solid var(--pink); }
+    .email-card.active { border-color: var(--border-active); background: rgba(124,58,237,0.08); }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+
+    .card-sender {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--text);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .card-time {
+      font-size: 11px;
+      color: var(--text-3);
+      flex-shrink: 0;
+      font-family: var(--mono);
+    }
+
+    .card-subject {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-2);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-bottom: 2px;
+    }
+
+    .card-preview {
+      font-size: 12px;
+      color: var(--text-3);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .spam-tag {
+      font-size: 10px;
+      padding: 1px 6px;
+      background: rgba(251,191,36,0.12);
+      color: var(--warning);
+      border-radius: 6px;
+      margin-left: 6px;
+      font-weight: 800;
+    }
+
+    /* ── EMAIL VIEWER ── */
+    .email-viewer {
+      background: rgba(16,16,30,0.92);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      margin-bottom: 10px;
+      overflow: hidden;
+      display: none;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+    }
+
+    .email-viewer.open { display: block; }
+
+    .viewer-header {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .viewer-meta { flex: 1; min-width: 0; }
+
+    .viewer-subject {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .viewer-from {
+      font-size: 12.5px;
+      color: var(--text-2);
+      margin-bottom: 2px;
+      font-family: var(--mono);
+    }
+
+    .viewer-date {
+      font-size: 11.5px;
+      color: var(--text-3);
+    }
+
+    .viewer-actions { display: flex; gap: 6px; flex-shrink: 0; }
+
+    .viewer-tabs {
+      display: flex;
+      padding: 10px 20px 0;
+      border-bottom: 1px solid var(--border);
+      gap: 0;
+    }
+
+    .vtab {
+      padding: 7px 14px;
+      font-size: 12.5px;
+      font-weight: 800;
+      color: var(--text-3);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      border-bottom: 2.5px solid transparent;
+      margin-bottom: -1px;
+      transition: all 0.15s;
+      font-family: var(--sans);
+    }
+
+    .vtab.active { color: var(--accent-2); border-bottom-color: var(--accent-2); }
+
+    .viewer-body { position: relative; }
+
+    .viewer-body iframe {
+      width: 100%;
+      border: none;
+      min-height: 300px;
+      background: #fff;
+      display: block;
+    }
+
+    .viewer-text {
+      padding: 20px;
+      font-family: var(--mono);
+      font-size: 12.5px;
+      color: var(--text-2);
+      line-height: 1.8;
+      white-space: pre-wrap;
+      word-break: break-word;
+      display: none;
+    }
+
+    /* ── EMPTY STATE ── */
+    .empty {
+      text-align: center;
+      padding: 56px 20px;
+    }
+
+    .empty-emoji {
+      font-size: 52px;
+      display: block;
+      margin-bottom: 14px;
+      animation: emptyFloat 2.2s ease-in-out infinite alternate;
+    }
+
+    @keyframes emptyFloat {
+      0%   { transform: translateY(0) rotate(-3deg); }
+      100% { transform: translateY(-12px) rotate(3deg); }
+    }
+
+    .empty h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-2);
+      margin-bottom: 8px;
+    }
+
+    .empty p {
+      font-size: 13.5px;
+      color: var(--text-3);
+      line-height: 1.7;
+      max-width: 300px;
+      margin: 0 auto;
+      font-weight: 600;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      padding: 20px 20px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-3);
+      background: rgba(8,8,18,0.6);
+      backdrop-filter: blur(8px);
+    }
+
+    .footer a {
+      color: var(--accent-2);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .footer a:hover { color: var(--pink); }
+
+    /* ── TOAST ── */
+    .toasts {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .toast {
+      background: rgba(20,20,36,0.96);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      animation: toastIn 0.2s ease;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.5);
+      backdrop-filter: blur(14px);
+    }
+
+    .toast.ok   { border-left: 3px solid var(--success); }
+    .toast.err  { border-left: 3px solid var(--danger); }
+    .toast.info { border-left: 3px solid var(--accent-2); }
+
+    @keyframes toastIn { from{transform:translateX(100%);opacity:0} to{transform:none;opacity:1} }
+
+    /* ══════════════════════════════════════
+       LOADING SCREEN — fun version
+    ══════════════════════════════════════ */
+    #loadScreen {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #080812;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+
+    #loadScreen.hiding {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    #loadScreen::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(167,139,250,0.07) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+    }
+
+    #loadScreen::after {
+      content: "";
+      position: absolute;
+      top: -20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 500px;
+      background: radial-gradient(ellipse at 50% 0%,
+        rgba(124,58,237,0.22) 0%,
+        rgba(244,114,182,0.08) 40%,
+        transparent 70%);
+      pointer-events: none;
+      animation: beamFloat 5s ease-in-out infinite alternate;
+    }
+
+    .load-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .load-icon-wrap {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      animation: loadIconFloat 2.2s ease-in-out infinite;
+    }
+
+    @keyframes loadIconFloat {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-14px); }
+    }
+
+    .load-icon-wrap::before {
+      content: "";
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,58,237,0.3) 0%, transparent 70%);
+      animation: iconGlow 2.2s ease-in-out infinite;
+    }
+
+    @keyframes iconGlow {
+      0%,100% { transform: scale(1); opacity: 0.7; }
+      50%      { transform: scale(1.25); opacity: 1; }
+    }
+
+    .load-main-emoji {
+      font-size: 72px;
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 8px 24px rgba(124,58,237,0.5));
+    }
+
+    /* sparkles */
+    .load-sparks { position: absolute; inset: -10px; pointer-events: none; }
+
+    .spark {
+      position: absolute;
+      font-size: 14px;
+      animation: sparkAnim linear infinite;
+      opacity: 0;
+    }
+
+    .spark:nth-child(1){ top:5%;  left:10%; animation-duration:2.1s; animation-delay:0s;   color:#a78bfa; }
+    .spark:nth-child(2){ top:10%; right:8%; animation-duration:1.8s; animation-delay:0.4s; color:#f472b6; }
+    .spark:nth-child(3){ bottom:8%; left:5%; animation-duration:2.4s; animation-delay:0.8s; color:#fbbf24; }
+    .spark:nth-child(4){ bottom:5%; right:10%; animation-duration:1.9s; animation-delay:0.2s; color:#a78bfa; }
+    .spark:nth-child(5){ top:50%; left:-5%; animation-duration:2.2s; animation-delay:1s; color:#f472b6; }
+    .spark:nth-child(6){ top:50%; right:-5%; animation-duration:2.0s; animation-delay:0.6s; color:#fbbf24; }
+
+    @keyframes sparkAnim {
+      0%  { opacity:0; transform:scale(0.4) rotate(0deg); }
+      30% { opacity:1; transform:scale(1) rotate(90deg); }
+      60% { opacity:0.6; transform:scale(0.8) rotate(180deg); }
+      100%{ opacity:0; transform:scale(0.4) rotate(360deg); }
+    }
+
+    .load-brand {
+      font-family: var(--sans);
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      color: transparent;
+      background: linear-gradient(90deg, #a78bfa, #f472b6, #fbbf24, #a78bfa);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: shimmerText 2s linear infinite;
+      margin-bottom: 10px;
+    }
+
+    @keyframes shimmerText {
+      0%   { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    .load-msg {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-3);
+      height: 22px;
+      font-family: var(--sans);
+      transition: opacity 0.25s ease;
+      margin-bottom: 28px;
+    }
+
+    .load-msg.fade { opacity: 0; }
+
+    .load-progress-wrap {
+      width: 200px;
+      height: 4px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+
+    .load-progress-bar {
+      height: 100%;
+      width: 0%;
+      border-radius: 100px;
+      background: linear-gradient(90deg, #7c3aed, #a78bfa, #f472b6);
+      background-size: 200% 100%;
+      animation: barShimmer 1.2s linear infinite;
+      transition: width 0.1s linear;
+    }
+
+    @keyframes barShimmer {
+      0%   { background-position: 100% 0; }
+      100% { background-position: -100% 0; }
+    }
+
+    .load-dots {
+      display: flex;
+      gap: 6px;
+      margin-top: 16px;
+    }
+
+    .load-dot-w {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-2);
+      animation: dotWave 1.2s ease-in-out infinite;
+      opacity: 0.4;
+    }
+
+    .load-dot-w:nth-child(2) { animation-delay: 0.2s; background: var(--pink); }
+    .load-dot-w:nth-child(3) { animation-delay: 0.4s; background: var(--warning); }
+
+    @keyframes dotWave {
+      0%,100% { transform: translateY(0); opacity: 0.4; }
+      50%      { transform: translateY(-7px); opacity: 1; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (prefers-reduced-motion: reduce) {
+      .orb-1, .orb-2, .orb-3 { animation: none; }
+      .bg-canvas::after { animation: none; }
+      .logo-emoji { animation: none; }
+      .hero-title .bounce-word { animation: none; }
+      .empty-emoji { animation: none; }
+      .load-icon-wrap { animation: none; }
+      .load-icon-wrap::before { animation: none; }
+      .spark { animation: none; opacity: 0.5; }
+      .load-brand { animation: none; -webkit-text-fill-color: #a78bfa; }
+      .load-progress-bar { animation: none; }
+      .load-dot-w { animation: none; opacity: 0.6; }
+    }
+
+    @media (max-width: 600px) {
+      .header { padding: 10px 14px; }
+      .hero { padding: 30px 14px 20px; }
+      .hero-sub { font-size: 13.5px; }
+      .address-wrap { padding: 0 12px 22px; }
+      .address-box { padding: 16px 14px 14px; }
+      .address-text { font-size: 13px; }
+      .address-actions { gap: 6px; }
+      .btn { padding: 7px 11px; font-size: 12px; }
+      .domain-select { font-size: 12px; padding: 7px 8px; max-width: 110px; }
+      .inbox-wrap { padding: 0 12px 40px; }
+      .email-card { padding: 12px 13px; }
+      .card-sender { font-size: 12.5px; }
+      .card-time { font-size: 10px; margin-left: 6px; }
+      .viewer-header { flex-direction: column; gap: 10px; padding: 14px; }
+      .viewer-actions { width: 100%; justify-content: flex-end; }
+      .custom-input { width: 130px; }
+      .toasts { bottom: 12px; right: 12px; left: 12px; }
+      .toast { font-size: 12px; }
+      .features { gap: 8px; }
+      .feature-pill { font-size: 11px; padding: 4px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ LOADING SCREEN ══ -->
+  <div id="loadScreen" role="status" aria-label="Loading NAGETHA">
+    <div class="load-content">
+      <div class="load-icon-wrap">
+        <div class="load-sparks" aria-hidden="true">
+          <span class="spark">✦</span>
+          <span class="spark">★</span>
+          <span class="spark">✦</span>
+          <span class="spark">⋆</span>
+          <span class="spark">✧</span>
+          <span class="spark">★</span>
+        </div>
+        <span class="load-main-emoji" aria-hidden="true">📬</span>
+      </div>
+
+      <div class="load-brand">NAGETHA</div>
+      <div class="load-msg" id="loadMsg">Warming up your inbox…</div>
+
+      <div class="load-progress-wrap">
+        <div class="load-progress-bar" id="loadBar"></div>
+      </div>
+
+      <div class="load-dots" aria-hidden="true">
+        <div class="load-dot-w"></div>
+        <div class="load-dot-w"></div>
+        <div class="load-dot-w"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BACKGROUND -->
+  <div class="bg-canvas" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <a class="logo" href="/" aria-label="NAGETHA — Temporary Email Home">
+      <span class="logo-emoji" aria-hidden="true">📬</span>
+      <span class="logo-name">NAGE<span>THA</span></span>
+    </a>
+    <div class="header-right">
+      <div class="live-badge state-connecting" id="liveBadge" role="status" aria-live="polite">
+        <div class="live-icon">
+          <span class="live-ring"></span>
+          <span class="live-dot-new" id="liveDot"></span>
+        </div>
+        <span id="liveText">Connecting</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">✨ No signup &nbsp;·&nbsp; No spam &nbsp;·&nbsp; 100% free ✨</div>
+    <h1 class="hero-title">
+      Your <span class="pop">Disposable</span> Inbox<br>
+      <span class="bounce-word">Ready Instantly</span> 🚀
+    </h1>
+    <p class="hero-sub">Throwaway email that actually works. Protect your real inbox from spam!</p>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="features" aria-hidden="true">
+    <div class="feature-pill">✅ No signup</div>
+    <div class="feature-pill">⚡ Real-time</div>
+    <div class="feature-pill">🔒 Privacy first</div>
+    <div class="feature-pill">✏️ Custom username</div>
+    <div class="feature-pill">♾️ 100% free</div>
+  </div>
+
+  <!-- ADDRESS -->
+  <div class="address-wrap">
+    <div class="address-box">
+      <div class="address-label">📮 Your temporary email address</div>
+      <div class="address-display">
+        <span class="address-text" id="addressText" aria-label="Current email address">Generating...</span>
+      </div>
+      <div class="address-actions">
+        <button class="btn btn-primary" id="copyBtn" aria-label="Copy email address to clipboard">
+          <span class="btn-emoji">📋</span> Copy
+        </button>
+        <button class="btn btn-ghost" id="genBtn" aria-label="Generate new email address">
+          <span class="btn-emoji">🔄</span> New
+        </button>
+        <select class="domain-select" id="domainSelect" aria-label="Select email domain"></select>
+        <button class="btn btn-fun" id="customToggle">
+          <span class="btn-emoji">✏️</span> Custom
+        </button>
+      </div>
+
+      <div class="custom-form" id="customForm">
+        <input type="text" class="custom-input" id="customUser" placeholder="username" maxlength="30" aria-label="Custom username" autocomplete="off" />
+        <span class="at-sym">@</span>
+        <select class="domain-select" id="customDomain" aria-label="Select domain for custom address"></select>
+        <button class="btn btn-primary" id="customSave" style="padding:8px 14px">Create ✨</button>
+        <button class="btn btn-ghost" id="customCancel" style="padding:8px 10px">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- INBOX -->
+  <div class="inbox-wrap">
+    <div class="inbox-container">
+      <div class="inbox-bar">
+        <span class="inbox-count" id="inboxCount" aria-live="polite">📥 INBOX</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span id="countdownText" style="font-size:11px;color:var(--text-3);font-family:var(--mono);min-width:28px;text-align:right" aria-label="Auto-refresh countdown"></span>
+          <button class="btn btn-ghost" id="refreshBtn" style="padding:5px 10px;font-size:12px" aria-label="Refresh inbox">
+            <span id="refreshSpinner">🔄</span> Refresh
+          </button>
+        </div>
+      </div>
+
+      <!-- Email Viewer -->
+      <div class="email-viewer" id="emailViewer" role="region" aria-label="Email viewer">
+        <div class="viewer-header">
+          <div class="viewer-meta">
+            <div class="viewer-subject" id="vSubject"></div>
+            <div class="viewer-from" id="vFrom"></div>
+            <div class="viewer-date" id="vDate"></div>
+          </div>
+          <div class="viewer-actions">
+            <button class="btn btn-danger" id="deleteBtn" style="padding:6px 10px;font-size:12px" aria-label="Delete this email">
+              🗑️ Delete
+            </button>
+            <button class="btn btn-ghost" id="closeViewer" style="padding:6px 10px;font-size:12px">✕ Close</button>
+          </div>
+        </div>
+        <div class="viewer-tabs">
+          <button class="vtab active" data-tab="html">HTML</button>
+          <button class="vtab" data-tab="text">Text</button>
+        </div>
+        <div class="viewer-body">
+          <iframe id="emailFrame" sandbox="allow-same-origin" title="Email content"></iframe>
+          <div class="viewer-text" id="viewerText"></div>
+        </div>
+      </div>
+
+      <!-- Email list -->
+      <div id="emailList" role="list" aria-label="Inbox messages">
+        <div class="empty" id="emptyState">
+          <span class="empty-emoji" aria-hidden="true">📭</span>
+          <h3>Nothing here yet!</h3>
+          <p>Send an email to the address above and it'll pop up here in seconds. 🎉</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>&copy; 2026 NAGETHA — Free temporary email 💜</div>
+    <div style="margin-top:4px;font-size:11.5px">Made with ❤️ by <a href="https://t.me/noxxyrorr" target="_blank" rel="noopener noreferrer">Noxxy</a></div>
+  </footer>
+
+  <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+
+<script>
+"use strict";
+const $ = id => document.getElementById(id);
+const store = {
+  get: k => { try { return JSON.parse(localStorage.getItem("ng_" + k)); } catch { return null; } },
+  set: (k, v) => localStorage.setItem("ng_" + k, JSON.stringify(v)),
+  remove: k => localStorage.removeItem("ng_" + k)
+};
+
+const state = { address: null, inbox: null, sessionId: null, emails: [], selectedId: null, sse: null, domains: [] };
+const list = $("emailList");
+
+function toast(msg, type = "info", ms = 3000) {
+  const el = document.createElement("div");
+  el.className = "toast " + type;
+  el.textContent = msg;
+  $("toasts").appendChild(el);
+  setTimeout(() => { el.style.animation = "toastIn 0.2s ease reverse"; setTimeout(() => el.remove(), 200); }, ms);
+}
+
+function setStatus(s) {
+  const badge = $("liveBadge"), txt = $("liveText");
+  badge.className = "live-badge" + (s === "connected" ? " state-on" : s === "connecting" ? " state-connecting" : " state-offline");
+  txt.textContent = s === "connected" ? "Live" : s === "connecting" ? "Connecting" : "Offline";
+}
+
+function esc(s) {
+  return String(s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+function relTime(d) {
+  const ms = Date.now() - new Date(d);
+  if (ms < 60000) return "just now";
+  if (ms < 3600000) return Math.floor(ms/60000) + "m ago";
+  if (ms < 86400000) return new Date(d).toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"});
+  return new Date(d).toLocaleDateString([], {month:"short", day:"numeric"});
+}
+
+function fullDate(d) {
+  return new Date(d).toLocaleString([], {dateStyle:"medium", timeStyle:"short"});
+}
+
+async function api(path, opts = {}) {
+  const r = await fetch(path, { headers: { "Content-Type": "application/json" }, ...opts });
+  return r.json();
+}
+
+async function loadDomains() {
+  try {
+    const r = await api("/api/domains");
+    state.domains = r.domains || ["nageetha.web.id"];
+  } catch { state.domains = ["nageetha.web.id"]; }
+
+  const currentHost = window.location.hostname;
+  const matchedDomain = state.domains.find(d => currentHost === d || currentHost.endsWith("." + d));
+  state.preferredDomain = matchedDomain || state.domains[0];
+
+  [$("domainSelect"), $("customDomain")].forEach(sel => {
+    sel.innerHTML = state.domains.map(d =>
+      `<option value="${d}"${d === state.preferredDomain ? " selected" : ""}>${d}</option>`
+    ).join("");
+  });
+}
+
+async function createInbox(username, domain) {
+  const sessionId = state.sessionId || (state.sessionId = store.get("sid") || crypto.randomUUID());
+  store.set("sid", sessionId);
+  $("addressText").textContent = "Generating...";
+  setStatus("connecting");
+  if (state.sse) { state.sse.close(); state.sse = null; }
+  try {
+    const d = domain || $("domainSelect").value;
+    const r = await api("/api/inbox", { method: "POST", body: JSON.stringify({ username, domain: d, sessionId }) });
+    if (!r.success) { toast(r.error || "Failed", "err"); return; }
+    state.address = r.inbox.address;
+    state.inbox = r.inbox;
+    state.emails = r.emails || [];
+    store.set("addr", r.inbox.address);
+    $("addressText").textContent = state.address;
+    closeViewer();
+    renderList();
+    connectSSE(state.address);
+    toast("📬 Inbox ready!", "ok");
+  } catch { toast("Network error 😵", "err"); setStatus("offline"); }
+}
+
+async function loadExisting(address) {
+  try {
+    const r = await api(`/api/inbox?address=${encodeURIComponent(address)}`);
+    if (r.success) {
+      state.address = r.inbox.address;
+      state.inbox = r.inbox;
+      state.emails = r.emails || [];
+      $("addressText").textContent = state.address;
+      [$("domainSelect")].forEach(s => { if (r.inbox.domain) s.value = r.inbox.domain; });
+      renderList();
+      connectSSE(state.address);
+      return true;
+    }
+  } catch {}
+  return false;
+}
+
+function connectSSE(address) {
+  setStatus("connecting");
+  const es = new EventSource(`/api/stream?address=${encodeURIComponent(address)}`);
+  state.sse = es;
+  es.addEventListener("connected", () => setStatus("connected"));
+  es.addEventListener("new_email", e => {
+    try {
+      const email = JSON.parse(e.data);
+      state.emails.unshift(email);
+      renderList();
+      const from = email.from?.name || email.from?.address || "Someone";
+      toast(`📩 New email from ${from}`, "info");
+    } catch {}
+  });
+  es.onerror = () => {
+    setStatus("offline");
+    setTimeout(() => { if (state.address) connectSSE(state.address); }, 5000);
+  };
+}
+
+function renderList() {
+  const empty = $("emptyState");
+  $("inboxCount").textContent = `📥 INBOX${state.emails.length ? " (" + state.emails.length + ")" : ""}`;
+
+  if (!state.emails.length) {
+    list.innerHTML = "";
+    list.appendChild(empty);
+    empty.style.display = "block";
+    return;
+  }
+  empty.style.display = "none";
+
+  const existing = new Set(Array.from(list.querySelectorAll(".email-card")).map(el => el.dataset.id));
+
+  state.emails.forEach((email) => {
+    const id = String(email._id);
+    let card = list.querySelector(`.email-card[data-id="${id}"]`);
+    const isActive = state.selectedId === id;
+    const isUnread = !email.read;
+    const isSpam = (email.spamScore || 0) >= 50;
+    const fromName = email.from?.name || email.from?.address || "Unknown";
+    const preview = (email.text || "").replace(/\s+/g, " ").trim().slice(0, 80);
+
+    if (!card) {
+      card = document.createElement("div");
+      card.className = "email-card";
+      card.dataset.id = id;
+      card.setAttribute("role", "listitem");
+      card.addEventListener("click", () => selectEmail(id));
+    }
+
+    card.className = `email-card${isActive ? " active" : ""}${isUnread ? " unread" : ""}`;
+    card.innerHTML = `
+      <div class="card-top">
+        <span class="card-sender">${esc(fromName)}${isSpam ? '<span class="spam-tag">⚠️ SPAM</span>' : ""}</span>
+        <span class="card-time">${relTime(email.receivedAt)}</span>
+      </div>
+      <div class="card-subject">${esc(email.subject || "(No Subject)")}</div>
+      <div class="card-preview">${esc(preview || "No preview available")}</div>
+    `;
+
+    if (!existing.has(id)) {
+      const first = list.querySelector(".email-card");
+      if (first) list.insertBefore(card, first);
+      else list.appendChild(card);
+    }
+  });
+}
+
+async function selectEmail(id) {
+  state.selectedId = id;
+  list.querySelectorAll(".email-card").forEach(c => {
+    c.classList.toggle("active", c.dataset.id === id);
+    if (c.dataset.id === id) c.classList.remove("unread");
+  });
+  const local = state.emails.find(e => String(e._id) === id);
+  if (local) local.read = true;
+  try {
+    const r = await api(`/api/emails/${id}`);
+    if (!r.success) return;
+    openViewer(r.email);
+  } catch { toast("Failed to load email 😓", "err"); }
+}
+
+function openViewer(email) {
+  const fromName = email.from?.name || email.from?.address || "";
+  const fromAddr = email.from?.address || "";
+  $("vSubject").textContent = email.subject || "(No Subject)";
+  $("vFrom").textContent = `${fromName} <${fromAddr}>`;
+  $("vDate").textContent = fullDate(email.receivedAt);
+
+  const frame = $("emailFrame");
+  if (email.html) {
+    const blob = new Blob([email.html], { type: "text/html" });
+    frame.src = URL.createObjectURL(blob);
+    frame.style.display = "block";
+  } else {
+    frame.style.display = "none";
+  }
+  $("viewerText").textContent = email.text || "(No text content)";
+
+  setViewerTab("html");
+  const viewer = $("emailViewer");
+  viewer.classList.add("open");
+  viewer.scrollIntoView({ behavior: "smooth", block: "start" });
+  state.selectedEmail = email;
+}
+
+function closeViewer() {
+  $("emailViewer").classList.remove("open");
+  state.selectedId = null;
+  state.selectedEmail = null;
+  list.querySelectorAll(".email-card").forEach(c => c.classList.remove("active"));
+}
+
+function setViewerTab(tab) {
+  document.querySelectorAll(".vtab").forEach(t => t.classList.toggle("active", t.dataset.tab === tab));
+  $("emailFrame").style.display = tab === "html" ? "block" : "none";
+  $("viewerText").style.display = tab === "text" ? "block" : "none";
+}
+
+async function deleteSelected() {
+  if (!state.selectedId) return;
+  const id = state.selectedId;
+  try {
+    const r = await api(`/api/emails/${id}`, { method: "DELETE" });
+    if (r.success) {
+      state.emails = state.emails.filter(e => String(e._id) !== id);
+      closeViewer();
+      renderList();
+      toast("🗑️ Deleted!", "ok");
+    }
+  } catch { toast("Delete failed 😓", "err"); }
+}
+
+// ── EVENTS
+$("copyBtn").addEventListener("click", () => {
+  if (!state.address) return;
+  navigator.clipboard.writeText(state.address)
+    .then(() => toast("📋 Copied to clipboard!", "ok"))
+    .catch(() => toast("Copy failed 😓", "err"));
+});
+
+$("genBtn").addEventListener("click", () => createInbox(null, $("domainSelect").value));
+
+// ── AUTO-REFRESH COUNTDOWN
+const REFRESH_INTERVAL = 30;
+let countdownVal = REFRESH_INTERVAL;
+let countdownTimer = null;
+
+function resetCountdown() {
+  countdownVal = REFRESH_INTERVAL;
+  updateCountdownUI();
+}
+
+function updateCountdownUI() {
+  const el = $("countdownText");
+  if (el) el.textContent = countdownVal + "s";
+}
+
+async function doRefresh(manual = false) {
+  if (!state.address) return;
+  const spinner = $("refreshSpinner");
+  if (spinner) {
+    spinner.style.display = "inline-block";
+    spinner.style.animation = "spin 0.6s linear";
+    setTimeout(() => { spinner.style.animation = ""; }, 600);
+  }
+  await loadExisting(state.address);
+  if (manual) toast("🔄 Refreshed!", "info");
+  resetCountdown();
+}
+
+function startCountdown() {
+  if (countdownTimer) clearInterval(countdownTimer);
+  resetCountdown();
+  countdownTimer = setInterval(async () => {
+    countdownVal--;
+    updateCountdownUI();
+    if (countdownVal <= 0) await doRefresh(false);
+  }, 1000);
+}
+
+$("refreshBtn").addEventListener("click", () => doRefresh(true));
+
+$("customToggle").addEventListener("click", () => {
+  $("customForm").classList.toggle("open");
+});
+
+$("customCancel").addEventListener("click", () => $("customForm").classList.remove("open"));
+
+$("customSave").addEventListener("click", () => {
+  const u = $("customUser").value.trim().toLowerCase();
+  if (!u || !/^[a-z0-9._-]{3,30}$/.test(u)) {
+    toast("⚠️ Invalid username (3-30 chars: letters, numbers, dot, dash)", "err");
+    return;
+  }
+  $("customForm").classList.remove("open");
+  $("customUser").value = "";
+  createInbox(u, $("customDomain").value);
+});
+
+$("customUser").addEventListener("keydown", e => { if (e.key === "Enter") $("customSave").click(); });
+$("closeViewer").addEventListener("click", closeViewer);
+$("deleteBtn").addEventListener("click", deleteSelected);
+
+document.querySelectorAll(".vtab").forEach(tab => {
+  tab.addEventListener("click", () => setViewerTab(tab.dataset.tab));
+});
+
+$("domainSelect").addEventListener("change", function() {
+  if (state.address) {
+    const user = state.address.split("@")[0];
+    createInbox(user, this.value);
+  }
+});
+
+// ── LOADING SCREEN
+const LOAD_MSGS = [
+  "Warming up your inbox… 🔥",
+  "Summoning the mail spirits… 👻",
+  "Teaching electrons to fly… ✈️",
+  "Polishing your mailbox… ✨",
+  "Almost there, hold on! 🤞",
+  "Your inbox is almost ready… 🎉",
+];
+let loadMsgIdx = 0;
+let loadMsgTimer = null;
+let loadBarVal = 0;
+let loadBarTimer = null;
+
+function startLoader() {
+  const bar = $("loadBar");
+  const msgEl = $("loadMsg");
+  loadBarTimer = setInterval(() => {
+    loadBarVal = Math.min(loadBarVal + (Math.random() * 4 + 1.5), 92);
+    if (bar) bar.style.width = loadBarVal + "%";
+  }, 80);
+  loadMsgTimer = setInterval(() => {
+    if (!msgEl) return;
+    msgEl.classList.add("fade");
+    setTimeout(() => {
+      loadMsgIdx = (loadMsgIdx + 1) % LOAD_MSGS.length;
+      msgEl.textContent = LOAD_MSGS[loadMsgIdx];
+      msgEl.classList.remove("fade");
+    }, 250);
+  }, 700);
+}
+
+function hideLoader() {
+  clearInterval(loadBarTimer);
+  clearInterval(loadMsgTimer);
+  const bar = $("loadBar");
+  if (bar) bar.style.width = "100%";
+  setTimeout(() => {
+    const screen = $("loadScreen");
+    if (screen) screen.classList.add("hiding");
+    setTimeout(() => { if (screen) screen.remove(); }, 650);
+  }, 260);
+}
+
+// ── INIT
+async function init() {
+  startLoader();
+  const minDelay = new Promise(r => setTimeout(r, 1800));
+  await loadDomains();
+  const sid = store.get("sid");
+  const addr = store.get("addr");
+  state.sessionId = sid;
+
+  const addrDomain = addr ? addr.split("@")[1] : null;
+  const domainMatch = addrDomain && addrDomain === state.preferredDomain;
+
+  if (addr && domainMatch) {
+    const ok = await loadExisting(addr);
+    if (!ok) await createInbox();
+  } else {
+    if (addr && !domainMatch) store.remove("addr");
+    await createInbox();
+  }
+
+  startCountdown();
+  await minDelay;
+  hideLoader();
+}
+
+init();
+</script>
+</body>
+</html>
