@@ -1,1 +1,808 @@
-'use strict';const _0x2795d3=_0x48cc;(function(_0x5b9eaf,_0x22a5b0){const _0x455b8e=_0x48cc,_0x32bfd2=_0x5b9eaf();while(!![]){try{const _0x59bed6=-parseInt(_0x455b8e(0x1d2))/0x1*(parseInt(_0x455b8e(0x245))/0x2)+-parseInt(_0x455b8e(0x20e))/0x3+-parseInt(_0x455b8e(0x23a))/0x4+-parseInt(_0x455b8e(0x1ee))/0x5*(parseInt(_0x455b8e(0x1f4))/0x6)+parseInt(_0x455b8e(0x1bd))/0x7+parseInt(_0x455b8e(0x220))/0x8*(parseInt(_0x455b8e(0x179))/0x9)+parseInt(_0x455b8e(0x1a7))/0xa;if(_0x59bed6===_0x22a5b0)break;else _0x32bfd2['push'](_0x32bfd2['shift']());}catch(_0x3ee600){_0x32bfd2['push'](_0x32bfd2['shift']());}}}(_0x198d,0xb3359));const API={'base':'',async 'post'(_0x4b8292,_0x373bdb){const _0x3a0fb4=_0x48cc,_0x4a8f6b=await fetch(API[_0x3a0fb4(0x16d)]+_0x4b8292,{'method':_0x3a0fb4(0x191),'headers':{'Content-Type':_0x3a0fb4(0x224)},'body':JSON[_0x3a0fb4(0x212)](_0x373bdb)});return _0x4a8f6b['json']();},async 'get'(_0x157bb6){const _0xf383f1=await fetch(API['base']+_0x157bb6);return _0xf383f1['json']();},async 'del'(_0x43a530){const _0x4ca799=_0x48cc,_0x5b4e0a=await fetch(API[_0x4ca799(0x16d)]+_0x43a530,{'method':_0x4ca799(0x1c5)});return _0x5b4e0a[_0x4ca799(0x1c2)]();}},state={'currentAddress':null,'currentInbox':null,'sessionId':null,'emails':[],'selectedEmailId':null,'selectedEmailData':null,'domains':[],'history':[],'sse':null,'currentView':_0x2795d3(0x183)},store={'get'(_0x351403){const _0x144827=_0x2795d3;try{return JSON[_0x144827(0x17e)](localStorage[_0x144827(0x1be)](_0x144827(0x1f8)+_0x351403));}catch{return null;}},'set'(_0x100b9f,_0x1ba69c){const _0x3d332f=_0x2795d3;try{localStorage[_0x3d332f(0x19e)](_0x3d332f(0x1f8)+_0x100b9f,JSON['stringify'](_0x1ba69c));}catch{}},'remove'(_0x63d39e){const _0x175beb=_0x2795d3;localStorage[_0x175beb(0x18f)](_0x175beb(0x1f8)+_0x63d39e);}};function toast(_0x21750c,_0x193696=_0x2795d3(0x21e),_0x7a6df7=0xbb8){const _0x28d5cb=_0x2795d3,_0x34319a=document['getElementById'](_0x28d5cb(0x16f)),_0x451267=document[_0x28d5cb(0x1a5)](_0x28d5cb(0x1c3));_0x451267[_0x28d5cb(0x1e0)]=_0x28d5cb(0x1f0)+_0x193696,_0x451267[_0x28d5cb(0x239)]=_0x21750c,_0x34319a['appendChild'](_0x451267),setTimeout(()=>{const _0x42cc52=_0x28d5cb;_0x451267['style'][_0x42cc52(0x22b)]='slideOut\x200.25s\x20ease\x20forwards',setTimeout(()=>_0x451267[_0x42cc52(0x1ad)](),0xfa);},_0x7a6df7);}function formatTime(_0x24a1ba){const _0x2f54a0=_0x2795d3,_0x203697=new Date(_0x24a1ba),_0x480e38=new Date(),_0x4ccd90=_0x480e38-_0x203697;if(_0x4ccd90<0xea60)return'just\x20now';if(_0x4ccd90<0x36ee80)return Math[_0x2f54a0(0x1ea)](_0x4ccd90/0xea60)+_0x2f54a0(0x1b7);if(_0x4ccd90<0x5265c00)return _0x203697[_0x2f54a0(0x1d7)]([],{'hour':_0x2f54a0(0x235),'minute':_0x2f54a0(0x235)});return _0x203697['toLocaleDateString']([],{'month':_0x2f54a0(0x1ba),'day':_0x2f54a0(0x17a)});}function formatDate(_0xfbd900){const _0x368400=_0x2795d3;return new Date(_0xfbd900)[_0x368400(0x1da)]([],{'dateStyle':_0x368400(0x188),'timeStyle':_0x368400(0x1ba)});}function _0x48cc(_0x3cd265,_0xcb9438){const _0x198d1f=_0x198d();return _0x48cc=function(_0x48cc57,_0x3277c9){_0x48cc57=_0x48cc57-0x169;let _0x5e182a=_0x198d1f[_0x48cc57];return _0x5e182a;},_0x48cc(_0x3cd265,_0xcb9438);}function getInitial(_0x20f2f8,_0x3eb040){const _0x4c17fd=_0x2795d3,_0x38ae71=_0x20f2f8||_0x3eb040||'?';return _0x38ae71[_0x4c17fd(0x18b)]()[_0x4c17fd(0x187)](0x0)[_0x4c17fd(0x22f)]();}function avatarColor(_0x17454a){const _0x56e19a=_0x2795d3,_0x4d989c=[_0x56e19a(0x234),'#8b5cf6',_0x56e19a(0x1cc),_0x56e19a(0x20a),_0x56e19a(0x177),_0x56e19a(0x186),_0x56e19a(0x1f3)];let _0x4dde07=0x0;for(const _0xa5f844 of _0x17454a||'')_0x4dde07=_0x4dde07*0x1f+_0xa5f844[_0x56e19a(0x1a0)](0x0)&0xffffffff;return _0x4d989c[Math['abs'](_0x4dde07)%_0x4d989c['length']];}function humanSize(_0x1e69af){const _0x1eb16a=_0x2795d3;if(!_0x1e69af)return _0x1eb16a(0x1d8);const _0x2bd681=['B','KB','MB','GB'];let _0x4f1839=0x0;while(_0x1e69af>=0x400&&_0x4f1839<0x3){_0x1e69af/=0x400,_0x4f1839++;}return _0x1e69af[_0x1eb16a(0x247)](0x1)+'\x20'+_0x2bd681[_0x4f1839];}async function loadDomains(){const _0x232126=_0x2795d3;try{const _0x3d0247=await API['get'](_0x232126(0x1ca));state['domains']=_0x3d0247[_0x232126(0x1ff)]||[_0x232126(0x21a)];}catch{state[_0x232126(0x1ff)]=[_0x232126(0x21a)];}renderDomainSelects();}function renderDomainSelects(){const _0x304632=_0x2795d3,_0x2a7c3f=[document[_0x304632(0x169)]('domainSelect'),document[_0x304632(0x169)](_0x304632(0x1b0))];_0x2a7c3f['forEach'](_0x24a419=>{const _0x14543a=_0x304632;if(!_0x24a419)return;_0x24a419[_0x14543a(0x211)]=state[_0x14543a(0x1ff)][_0x14543a(0x226)](_0x543e8a=>_0x14543a(0x196)+_0x543e8a+'\x22>'+_0x543e8a+_0x14543a(0x1df))[_0x14543a(0x244)]('');});}async function createInbox(_0x4fe725,_0xc46f1e){const _0x383cf1=_0x2795d3,_0x76093=state[_0x383cf1(0x17d)]||generateSessionId();state[_0x383cf1(0x17d)]=_0x76093,store['set'](_0x383cf1(0x17d),_0x76093),updateStatus(_0x383cf1(0x1bc)),setAddressText('Generating...');try{const _0x2792d3=await API[_0x383cf1(0x1b4)](_0x383cf1(0x238),{'username':_0x4fe725,'domain':_0xc46f1e,'sessionId':_0x76093});if(!_0x2792d3[_0x383cf1(0x1f6)]){toast(_0x2792d3[_0x383cf1(0x1cf)]||_0x383cf1(0x214),_0x383cf1(0x1cf));return;}state['currentAddress']=_0x2792d3['inbox'][_0x383cf1(0x1c1)],state[_0x383cf1(0x1f9)]=_0x2792d3[_0x383cf1(0x183)],state[_0x383cf1(0x23f)]=_0x2792d3[_0x383cf1(0x23f)]||[],state['selectedEmailId']=null,store[_0x383cf1(0x198)](_0x383cf1(0x24a),_0x2792d3[_0x383cf1(0x183)][_0x383cf1(0x1c1)]),addToHistory(_0x2792d3['inbox']),setAddressText(state[_0x383cf1(0x240)]),updateDomainSelect(_0x2792d3[_0x383cf1(0x183)]['domain']),renderEmailList(),resetViewer(),updateAnalytics(),updateSettings(),toast(_0x383cf1(0x1e6),_0x383cf1(0x1f6));}catch(_0x59b4c1){console[_0x383cf1(0x1cf)](_0x59b4c1),toast(_0x383cf1(0x21b),'error'),updateStatus('disconnected');}}function generateSessionId(){const _0x18d36b=_0x2795d3;return Array['from'](crypto[_0x18d36b(0x23e)](new Uint8Array(0x10)))[_0x18d36b(0x226)](_0x4a7fe4=>_0x4a7fe4[_0x18d36b(0x1ae)](0x10)['padStart'](0x2,'0'))['join']('');}async function loadExistingInbox(_0x43bb24){const _0x4ff2dd=_0x2795d3;try{const _0x513780=await API['get'](_0x4ff2dd(0x209)+encodeURIComponent(_0x43bb24));if(_0x513780[_0x4ff2dd(0x1f6)])return state[_0x4ff2dd(0x240)]=_0x513780[_0x4ff2dd(0x183)][_0x4ff2dd(0x1c1)],state[_0x4ff2dd(0x1f9)]=_0x513780[_0x4ff2dd(0x183)],state[_0x4ff2dd(0x23f)]=_0x513780['emails']||[],setAddressText(state['currentAddress']),updateDomainSelect(_0x513780[_0x4ff2dd(0x183)][_0x4ff2dd(0x21d)]),renderEmailList(),updateAnalytics(),updateSettings(),!![];}catch{}return![];}function addToHistory(_0xeb18b4){const _0x8bb0e8=_0x2795d3,_0x34e82c=store[_0x8bb0e8(0x1c4)](_0x8bb0e8(0x242))||[],_0x534cf6=_0x34e82c['findIndex'](_0x597de4=>_0x597de4['address']===_0xeb18b4[_0x8bb0e8(0x1c1)]);if(_0x534cf6!==-0x1)_0x34e82c[_0x8bb0e8(0x228)](_0x534cf6,0x1);_0x34e82c[_0x8bb0e8(0x230)]({'address':_0xeb18b4[_0x8bb0e8(0x1c1)],'domain':_0xeb18b4[_0x8bb0e8(0x21d)],'createdAt':_0xeb18b4[_0x8bb0e8(0x1a1)]||new Date()['toISOString']()});if(_0x34e82c[_0x8bb0e8(0x23c)]>0x14)_0x34e82c['pop']();store[_0x8bb0e8(0x198)](_0x8bb0e8(0x242),_0x34e82c),state['history']=_0x34e82c,renderHistory();}async function refreshInbox(){const _0x24982d=_0x2795d3;if(!state[_0x24982d(0x240)])return;try{const _0x1c58a2=await API['get']('/api/inbox?address='+encodeURIComponent(state['currentAddress']));_0x1c58a2[_0x24982d(0x1f6)]&&(state[_0x24982d(0x23f)]=_0x1c58a2[_0x24982d(0x23f)]||[],renderEmailList(),updateAnalytics(),updateStatus(_0x24982d(0x19a)));}catch(_0x5e93d2){updateStatus(_0x24982d(0x222));}}function updateStatus(_0x5b4082){const _0x646bd0=_0x2795d3,_0x4d75ce=document[_0x646bd0(0x169)]('statusDot'),_0x23d60c=document[_0x646bd0(0x169)](_0x646bd0(0x20b));_0x4d75ce[_0x646bd0(0x1e0)]=_0x646bd0(0x1af)+_0x5b4082;const _0x5bf233={'connected':_0x646bd0(0x17b),'connecting':_0x646bd0(0x229),'disconnected':_0x646bd0(0x1ac)};_0x23d60c[_0x646bd0(0x239)]=_0x5bf233[_0x5b4082]||_0x5b4082;}function showNewEmailNotification(_0x2cc017){const _0x29f041=_0x2795d3,_0x5b0277=_0x2cc017[_0x29f041(0x20c)]?.[_0x29f041(0x1de)]||_0x2cc017[_0x29f041(0x20c)]?.['address']||_0x29f041(0x1e1);toast(_0x29f041(0x185)+_0x5b0277,'info'),_0x29f041(0x1ce)in window&&Notification['permission']===_0x29f041(0x1aa)&&new Notification('NAGETHA\x20—\x20New\x20Email',{'body':_0x5b0277+':\x20'+_0x2cc017[_0x29f041(0x172)],'icon':_0x29f041(0x1b8)});}function renderEmailList(){const _0x2c8d80=_0x2795d3,_0x56f5c8=document[_0x2c8d80(0x169)]('emailList'),_0x4dd83c=document[_0x2c8d80(0x169)]('emptyState'),_0x294e68=document[_0x2c8d80(0x169)](_0x2c8d80(0x1d1)),_0x4eb7af=state[_0x2c8d80(0x23f)]['filter'](_0x4451b4=>!_0x4451b4[_0x2c8d80(0x1c9)])['length'];_0x294e68[_0x2c8d80(0x239)]=_0x2c8d80(0x1cb)+(_0x4eb7af?'\x20('+_0x4eb7af+')':'');if(!state[_0x2c8d80(0x23f)][_0x2c8d80(0x23c)]){_0x4dd83c[_0x2c8d80(0x223)][_0x2c8d80(0x1b6)]=_0x2c8d80(0x181),_0x56f5c8[_0x2c8d80(0x190)](_0x2c8d80(0x1d0))['forEach'](_0x3d8cf3=>_0x3d8cf3[_0x2c8d80(0x1ad)]());return;}_0x4dd83c['style'][_0x2c8d80(0x1b6)]=_0x2c8d80(0x213);const _0xb8ee84=new Set(Array[_0x2c8d80(0x20c)](_0x56f5c8[_0x2c8d80(0x190)](_0x2c8d80(0x1d0)))[_0x2c8d80(0x226)](_0x130ce6=>_0x130ce6[_0x2c8d80(0x22e)]['id'])),_0x3817ba=new Set(state['emails'][_0x2c8d80(0x226)](_0x589eee=>String(_0x589eee[_0x2c8d80(0x1bb)])));_0x56f5c8[_0x2c8d80(0x190)](_0x2c8d80(0x1d0))['forEach'](_0x42c4cf=>{const _0x176c81=_0x2c8d80;if(!_0x3817ba[_0x176c81(0x1c7)](_0x42c4cf[_0x176c81(0x22e)]['id']))_0x42c4cf[_0x176c81(0x1ad)]();}),state[_0x2c8d80(0x23f)]['forEach']((_0x383287,_0x134adf)=>{const _0x1f7b9c=_0x2c8d80,_0x167276=String(_0x383287['_id']);let _0x30ffe5=_0x56f5c8[_0x1f7b9c(0x1dc)](_0x1f7b9c(0x219)+_0x167276+'\x22]');const _0x30ce37=state[_0x1f7b9c(0x1e3)]===_0x167276,_0x174469=!_0x383287[_0x1f7b9c(0x1c9)],_0x1e603a=(_0x383287['spamScore']||0x0)>=0x32,_0x341aea=_0x383287[_0x1f7b9c(0x20c)]?.[_0x1f7b9c(0x1de)]||_0x383287[_0x1f7b9c(0x20c)]?.[_0x1f7b9c(0x1c1)]||_0x1f7b9c(0x1e1),_0x2b5ec3=(_0x383287['text']||'')[_0x1f7b9c(0x18e)](/\s+/g,'\x20')['trim']()[_0x1f7b9c(0x1b5)](0x0,0x50);!_0x30ffe5&&(_0x30ffe5=document[_0x1f7b9c(0x1a5)](_0x1f7b9c(0x1c3)),_0x30ffe5[_0x1f7b9c(0x1e0)]=_0x1f7b9c(0x203),_0x30ffe5['dataset']['id']=_0x167276,_0x30ffe5['addEventListener'](_0x1f7b9c(0x1a3),()=>selectEmail(_0x167276))),_0x30ffe5['className']=_0x1f7b9c(0x203)+(_0x30ce37?_0x1f7b9c(0x20d):'')+(_0x174469?'\x20unread':''),_0x30ffe5[_0x1f7b9c(0x211)]='\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22email-item-from\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22email-item-sender\x22>'+escHtml(_0x341aea)+(_0x1e603a?_0x1f7b9c(0x248):'')+_0x1f7b9c(0x1d5)+formatTime(_0x383287[_0x1f7b9c(0x1e9)])+'</span>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22email-item-subject\x22>'+escHtml(_0x383287[_0x1f7b9c(0x172)]||_0x1f7b9c(0x208))+_0x1f7b9c(0x16a)+escHtml(_0x2b5ec3||'No\x20preview\x20available')+_0x1f7b9c(0x19d),!_0xb8ee84[_0x1f7b9c(0x1c7)](_0x167276)&&(_0x134adf===0x0?_0x56f5c8[_0x1f7b9c(0x232)](_0x30ffe5,_0x56f5c8['querySelector']('.email-item')||_0x4dd83c):_0x56f5c8[_0x1f7b9c(0x1ec)](_0x30ffe5));});}function escHtml(_0x1ca734){const _0x384ba2=_0x2795d3;return String(_0x1ca734||'')[_0x384ba2(0x18e)](/&/g,'&amp;')[_0x384ba2(0x18e)](/</g,'&lt;')[_0x384ba2(0x18e)](/>/g,'&gt;')['replace'](/"/g,_0x384ba2(0x1eb));}async function selectEmail(_0x394ea4){const _0x10a366=_0x2795d3;state[_0x10a366(0x1e3)]=_0x394ea4,list_update_active(_0x394ea4);const _0x276008=state[_0x10a366(0x23f)][_0x10a366(0x18d)](_0x30dc41=>String(_0x30dc41[_0x10a366(0x1bb)])===_0x394ea4);if(_0x276008)_0x276008[_0x10a366(0x1c9)]=!![];try{const _0x4699a5=await API[_0x10a366(0x1c4)](_0x10a366(0x1c8)+_0x394ea4);if(!_0x4699a5[_0x10a366(0x1f6)]){toast('Failed\x20to\x20load\x20email',_0x10a366(0x1cf));return;}renderEmailViewer(_0x4699a5['email']),state[_0x10a366(0x23d)]=_0x4699a5[_0x10a366(0x206)];}catch(_0x5a7e8a){toast(_0x10a366(0x218),'error');}}function list_update_active(_0x2b97a1){const _0xbdb1e3=_0x2795d3;document['querySelectorAll'](_0xbdb1e3(0x1d0))[_0xbdb1e3(0x1d3)](_0x4eed47=>{const _0x5c7a05=_0xbdb1e3;_0x4eed47['classList']['toggle'](_0x5c7a05(0x22d),_0x4eed47[_0x5c7a05(0x22e)]['id']===_0x2b97a1);if(_0x4eed47[_0x5c7a05(0x22e)]['id']===_0x2b97a1)_0x4eed47[_0x5c7a05(0x194)]['remove']('unread');});}function renderEmailViewer(_0x42fee4){const _0x503609=_0x2795d3;document[_0x503609(0x169)]('viewerPlaceholder')[_0x503609(0x194)]['add'](_0x503609(0x225));const _0x59f425=document[_0x503609(0x169)]('emailContent');_0x59f425['classList']['remove'](_0x503609(0x225));const _0x38cb44=_0x42fee4[_0x503609(0x20c)]?.['name']||_0x42fee4[_0x503609(0x20c)]?.[_0x503609(0x1c1)]||_0x503609(0x1e1),_0x33d4db=_0x42fee4[_0x503609(0x20c)]?.[_0x503609(0x1c1)]||'',_0x34dc30=getInitial(_0x38cb44,_0x33d4db),_0x3e4b12=avatarColor(_0x33d4db),_0x302294=document[_0x503609(0x169)](_0x503609(0x1b1));_0x302294['textContent']=_0x34dc30,_0x302294[_0x503609(0x223)]['background']=_0x3e4b12,document[_0x503609(0x169)](_0x503609(0x200))[_0x503609(0x239)]=_0x42fee4[_0x503609(0x172)]||_0x503609(0x208),document[_0x503609(0x169)]('emailFromFull')['textContent']=_0x38cb44+'\x20<'+_0x33d4db+'>',document[_0x503609(0x169)](_0x503609(0x192))[_0x503609(0x239)]=formatDate(_0x42fee4[_0x503609(0x1e9)]);const _0x1738de=document[_0x503609(0x169)](_0x503609(0x175));if(_0x42fee4[_0x503609(0x1fe)]){const _0x59f945=new Blob([_0x42fee4['html']],{'type':_0x503609(0x231)}),_0x7d9fad=URL['createObjectURL'](_0x59f945);_0x1738de[_0x503609(0x227)]=_0x7d9fad,document[_0x503609(0x169)](_0x503609(0x176))[_0x503609(0x194)]['remove']('hidden');}else document[_0x503609(0x169)]('emailBodyHtml')[_0x503609(0x194)][_0x503609(0x20f)](_0x503609(0x225));const _0x40b080=document['getElementById'](_0x503609(0x199));_0x40b080[_0x503609(0x239)]=_0x42fee4[_0x503609(0x1dd)]||_0x503609(0x1b3);const _0x526349=document[_0x503609(0x169)]('emailAttachments');_0x526349[_0x503609(0x211)]='',_0x42fee4[_0x503609(0x202)]?.['length']&&_0x42fee4['attachments'][_0x503609(0x1d3)](_0xdc949a=>{const _0x5918d2=_0x503609,_0x36334d=document[_0x5918d2(0x1a5)]('div');_0x36334d[_0x5918d2(0x1e0)]=_0x5918d2(0x182),_0x36334d[_0x5918d2(0x211)]=_0x5918d2(0x16c)+escHtml(_0xdc949a['filename'])+_0x5918d2(0x249)+humanSize(_0xdc949a['size'])+_0x5918d2(0x241),_0x526349[_0x5918d2(0x1ec)](_0x36334d);}),setActiveTab(_0x503609(0x1fe));}function setActiveTab(_0x29ded4){const _0x2c0790=_0x2795d3;document['querySelectorAll'](_0x2c0790(0x17f))[_0x2c0790(0x1d3)](_0x50ed1e=>_0x50ed1e['classList'][_0x2c0790(0x1fb)]('active',_0x50ed1e[_0x2c0790(0x22e)][_0x2c0790(0x204)]===_0x29ded4)),document[_0x2c0790(0x169)](_0x2c0790(0x176))[_0x2c0790(0x194)][_0x2c0790(0x1fb)]('hidden',_0x29ded4!==_0x2c0790(0x1fe)),document['getElementById'](_0x2c0790(0x199))[_0x2c0790(0x194)]['toggle']('hidden',_0x29ded4!==_0x2c0790(0x1dd));}function resetViewer(){const _0x3ec7cc=_0x2795d3;state[_0x3ec7cc(0x1e3)]=null,state[_0x3ec7cc(0x23d)]=null,document[_0x3ec7cc(0x169)]('viewerPlaceholder')[_0x3ec7cc(0x194)][_0x3ec7cc(0x1ad)](_0x3ec7cc(0x225)),document[_0x3ec7cc(0x169)]('emailContent')[_0x3ec7cc(0x194)][_0x3ec7cc(0x20f)](_0x3ec7cc(0x225));}function updateAnalytics(){const _0x677504=_0x2795d3,_0x2c3bca=state[_0x677504(0x23f)]['length'],_0x1f4f03=state['emails'][_0x677504(0x17c)](_0x10c39b=>!_0x10c39b[_0x677504(0x1c9)])['length'];document['getElementById']('statTotal')[_0x677504(0x239)]=_0x2c3bca,document['getElementById'](_0x677504(0x1fc))['textContent']=_0x1f4f03;if(state['currentInbox']){const _0x4b1431=new Date(state['currentInbox']['createdAt']||Date[_0x677504(0x1d9)]()),_0x58f75d=Date[_0x677504(0x1d9)]()-_0x4b1431,_0x14250a=Math[_0x677504(0x1ea)](_0x58f75d/0x36ee80),_0x2b9b00=Math[_0x677504(0x1ea)](_0x58f75d%0x36ee80/0xea60);document[_0x677504(0x169)](_0x677504(0x16e))[_0x677504(0x239)]=_0x14250a>0x0?_0x14250a+'h\x20'+_0x2b9b00+'m':_0x2b9b00+'m';const _0xff6d04=new Date(state[_0x677504(0x1f9)][_0x677504(0x243)]),_0x8031f6=_0xff6d04-Date['now']();if(_0x8031f6>0x0){const _0x379081=Math['floor'](_0x8031f6/0x36ee80),_0x81c067=Math[_0x677504(0x1ea)](_0x8031f6%0x36ee80/0xea60);document[_0x677504(0x169)](_0x677504(0x180))['textContent']=_0x379081+'h\x20'+_0x81c067+'m';}else document[_0x677504(0x169)](_0x677504(0x180))['textContent']=_0x677504(0x201);}}function renderHistory(){const _0x435761=_0x2795d3,_0x30924f=document['getElementById'](_0x435761(0x178)),_0x441648=store[_0x435761(0x1c4)]('history')||[];if(!_0x441648[_0x435761(0x23c)]){_0x30924f['innerHTML']=_0x435761(0x1db);return;}_0x30924f[_0x435761(0x211)]=_0x441648[_0x435761(0x226)](_0x3f56ed=>_0x435761(0x1e2)+(_0x3f56ed[_0x435761(0x1c1)]===state[_0x435761(0x240)]?_0x435761(0x210):'')+'\x22\x20data-address=\x22'+escHtml(_0x3f56ed[_0x435761(0x1c1)])+'\x22>\x0a\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22history-address\x22>'+escHtml(_0x3f56ed[_0x435761(0x1c1)])+_0x435761(0x1a9)+formatDate(_0x3f56ed['createdAt'])+_0x435761(0x193)+escHtml(_0x3f56ed[_0x435761(0x1c1)])+_0x435761(0x1a2)+escHtml(_0x3f56ed['address'])+_0x435761(0x217))['join']('');}async function restoreInbox(_0x171b49){const _0x3e34e7=_0x2795d3,_0xaaba6d=await loadExistingInbox(_0x171b49);!_0xaaba6d?(toast(_0x3e34e7(0x195),_0x3e34e7(0x21e)),await createInbox()):(toast('Inbox\x20restored','success'),switchView(_0x3e34e7(0x183)));}function updateSettings(){const _0xfea7cd=_0x2795d3,_0x378332=state[_0xfea7cd(0x240)]||'—',_0x3b67a6=document[_0xfea7cd(0x169)](_0xfea7cd(0x1fd));if(_0x3b67a6)_0x3b67a6['textContent']=_0x378332;}function updateDomainSelect(_0x477612){const _0xcbe417=_0x2795d3,_0x48f646=document[_0xcbe417(0x169)](_0xcbe417(0x221));if(_0x48f646&&_0x477612)_0x48f646[_0xcbe417(0x1bf)]=_0x477612;}function switchView(_0x5e1d46){const _0x251005=_0x2795d3;state[_0x251005(0x1e7)]=_0x5e1d46,document['querySelectorAll']('.view')['forEach'](_0x849b2d=>_0x849b2d[_0x251005(0x194)][_0x251005(0x1fb)](_0x251005(0x225),_0x849b2d['id']!==_0x251005(0x173)+_0x5e1d46)),document['querySelectorAll']('.nav-item')['forEach'](_0x2a3053=>_0x2a3053['classList'][_0x251005(0x1fb)]('active',_0x2a3053[_0x251005(0x22e)][_0x251005(0x233)]===_0x5e1d46));if(_0x5e1d46===_0x251005(0x242))renderHistory();if(_0x5e1d46==='analytics')updateAnalytics();}function setAddressText(_0x3d0323){const _0x90d555=_0x2795d3;document[_0x90d555(0x169)]('currentAddress')[_0x90d555(0x239)]=_0x3d0323;}function copyText(_0x25cecd){const _0x32b688=_0x2795d3;navigator[_0x32b688(0x21f)][_0x32b688(0x171)](_0x25cecd)[_0x32b688(0x1d6)](()=>toast(_0x32b688(0x1e5),_0x32b688(0x1f6)))['catch'](()=>toast(_0x32b688(0x1c0),_0x32b688(0x1cf)));}function openSourceModal(){const _0x5e3375=_0x2795d3;if(!state[_0x5e3375(0x23d)])return;const _0x28869d=JSON[_0x5e3375(0x212)](state[_0x5e3375(0x23d)],null,0x2);document[_0x5e3375(0x169)]('sourceCode')[_0x5e3375(0x239)]=_0x28869d,document['getElementById']('sourceModal')['classList'][_0x5e3375(0x1ad)](_0x5e3375(0x225));}function closeSourceModal(){const _0x316978=_0x2795d3;document[_0x316978(0x169)](_0x316978(0x1f2))['classList'][_0x316978(0x20f)](_0x316978(0x225));}function openHeadersModal(){const _0x29d2f3=_0x2795d3;if(!state[_0x29d2f3(0x23d)])return;const _0x5e8d25=state[_0x29d2f3(0x23d)]['headers']||{},_0x766c5=document[_0x29d2f3(0x169)](_0x29d2f3(0x22a));_0x766c5[_0x29d2f3(0x211)]=Object[_0x29d2f3(0x170)](_0x5e8d25)[_0x29d2f3(0x226)](([_0x154487,_0x1d127b])=>_0x29d2f3(0x1a4)+escHtml(_0x154487)+'</span>\x0a\x20\x20\x20\x20\x20\x20<span\x20class=\x22header-value\x22>'+escHtml(_0x1d127b)+'</span>\x0a\x20\x20\x20\x20</div>\x0a\x20\x20')['join']('')||'<p\x20style=\x27color:var(--text-tertiary);font-size:13px\x27>No\x20headers\x20available</p>',document[_0x29d2f3(0x169)](_0x29d2f3(0x19b))[_0x29d2f3(0x194)][_0x29d2f3(0x1ad)](_0x29d2f3(0x225));}function closeHeadersModal(){const _0x562a67=_0x2795d3;document['getElementById']('headersModal')['classList'][_0x562a67(0x20f)](_0x562a67(0x225));}async function deleteSelectedEmail(){const _0x1b7050=_0x2795d3;if(!state['selectedEmailId'])return;const _0x1c2d6a=state[_0x1b7050(0x1e3)];try{const _0xc5ccf3=await API[_0x1b7050(0x1b9)]('/api/emails/'+_0x1c2d6a);_0xc5ccf3[_0x1b7050(0x1f6)]?(state['emails']=state[_0x1b7050(0x23f)][_0x1b7050(0x17c)](_0x225d6e=>String(_0x225d6e[_0x1b7050(0x1bb)])!==_0x1c2d6a),resetViewer(),renderEmailList(),updateAnalytics(),toast('Email\x20deleted',_0x1b7050(0x1f6))):toast(_0x1b7050(0x22c),_0x1b7050(0x1cf));}catch{toast(_0x1b7050(0x22c),_0x1b7050(0x1cf));}}function _0x198d(){const _0x5cf444=['clearAllBtn','domain','info','clipboard','27736SPsDkQ','domainSelect','disconnected','style','application/json','hidden','map','src','splice','Connecting','headersList','animation','Failed\x20to\x20delete\x20email','active','dataset','toUpperCase','unshift','text/html','insertBefore','view','#6366f1','2-digit','test','customToggle','/api/inbox','textContent','2690128higpkU','split','length','selectedEmailData','getRandomValues','emails','currentAddress','</span>','history','expiresAt','join','2NCsSyp','refreshBtn','toFixed','<span\x20class=\x22spam-badge\x22>SPAM</span>','\x20<span\x20style=\x22color:var(--text-tertiary)\x22>','lastAddress','getElementById','</div>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22email-item-preview\x22>','customGenerateBtn','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.5\x22><path\x20d=\x22M18.375\x2012.739l-7.693\x207.693a4.5\x204.5\x200\x2001-6.364-6.364l10.94-10.94A3\x203\x200\x201119.5\x207.372L8.552\x2018.32m.009-.01-.01.01m5.699-9.941l-7.81\x207.81a1.5\x201.5\x200\x20002.112\x202.13\x22/></svg>\x20','base','statAge','toastContainer','entries','writeText','subject','view-','Deleted\x20','emailFrame','emailBodyHtml','#f59e0b','historyList','2070wDnKdb','numeric','Live','filter','sessionId','parse','.render-tab','statExpiry','flex','attachment-chip','inbox','sourceModalClose','New\x20email\x20from\x20','#ef4444','charAt','medium','open','No\x20address\x20yet','trim','Delete\x20all\x20emails\x20in\x20this\x20inbox?\x20This\x20cannot\x20be\x20undone.','find','replace','removeItem','querySelectorAll','POST','emailDateFull','</div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22history-actions\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn\x20btn-ghost\x20btn-sm\x22\x20onclick=\x22restoreInbox(\x27','classList','Inbox\x20expired\x20or\x20not\x20found.\x20Creating\x20new\x20one...','<option\x20value=\x22','addEventListener','set','emailBodyText','connected','headersModal','sidebarToggle','</div>\x0a\x20\x20\x20\x20','setItem','viewHeadersBtn','charCodeAt','createdAt','\x27)\x22>Restore</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn\x20btn-ghost\x20btn-sm\x22\x20onclick=\x22copyText(\x27','click','\x0a\x20\x20\x20\x20<div\x20class=\x22header-row\x22>\x0a\x20\x20\x20\x20\x20\x20<span\x20class=\x22header-key\x22>','createElement','Escape','18976280DVKIJM','restoreInbox','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22history-meta\x22>Created\x20','granted','customAddressForm','Offline','remove','toString','status-dot\x20','customDomainSelect','senderAvatar','Invalid\x20username.\x20Use\x203-30\x20chars:\x20letters,\x20numbers,\x20dots,\x20hyphens','(No\x20text\x20content)','post','slice','display','m\x20ago','/favicon.ico','del','short','_id','connecting','6921614ThHEau','getItem','value','Copy\x20failed','address','json','div','get','DELETE','customUsername','has','/api/emails/','read','/api/domains','Inbox','#06b6d4','keydown','Notification','error','.email-item','emailCount','1313063iWlMPv','forEach','generateBtn','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22email-item-time\x22>','then','toLocaleTimeString','0\x20B','now','toLocaleString','<p\x20style=\x22color:var(--text-tertiary);font-size:13px\x22>No\x20history\x20yet.\x20Generated\x20inboxes\x20will\x20appear\x20here.</p>','querySelector','text','name','</option>','className','Unknown','\x0a\x20\x20\x20\x20<div\x20class=\x22history-card','selectedEmailId','deleteEmailBtn','Copied\x20to\x20clipboard','Inbox\x20ready','currentView','sourceModalBackdrop','receivedAt','floor','&quot;','appendChild','key','1129115corCXI','headersModalClose','toast\x20','sidebar','sourceModal','#ec4899','18wHzGMu','copyText','success','toLowerCase','ngt_','currentInbox','copyBtn','toggle','statUnread','settingAddress','html','domains','emailSubjectFull','Expired','attachments','email-item','tab','permission','email','customCancelBtn','(No\x20Subject)','/api/inbox?address=','#10b981','statusText','from','\x20active','860205dMAbnQ','add','\x20current','innerHTML','stringify','none','Failed\x20to\x20create\x20inbox','Refreshed','requestPermission','\x27)\x22>Copy</button>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20</div>\x0a\x20\x20','Failed\x20to\x20load\x20email','.email-item[data-id=\x22','nageetha.web.id','Network\x20error.\x20Retrying...'];_0x198d=function(){return _0x5cf444;};return _0x198d();}async function clearAllEmails(){const _0x209364=_0x2795d3;if(!confirm(_0x209364(0x18c)))return;const _0x29efca=state[_0x209364(0x23f)]['map'](_0x3da166=>String(_0x3da166[_0x209364(0x1bb)]));let _0x293927=0x0;for(const _0x313d4f of _0x29efca){try{const _0x3ad36c=await API[_0x209364(0x1b9)]('/api/emails/'+_0x313d4f);if(_0x3ad36c[_0x209364(0x1f6)])_0x293927++;}catch{}}state['emails']=[],resetViewer(),renderEmailList(),updateAnalytics(),toast(_0x209364(0x174)+_0x293927+'\x20email'+(_0x293927!==0x1?'s':''),'success');}function toggleSidebar(){const _0x2e5045=_0x2795d3;document[_0x2e5045(0x169)](_0x2e5045(0x1f1))['classList'][_0x2e5045(0x1fb)](_0x2e5045(0x189));}function bindEvents(){const _0x413fda=_0x2795d3;document[_0x413fda(0x169)](_0x413fda(0x1d4))['addEventListener'](_0x413fda(0x1a3),()=>{const _0x5ca109=document['getElementById']('domainSelect')['value'];createInbox(null,_0x5ca109);}),document[_0x413fda(0x169)](_0x413fda(0x1fa))[_0x413fda(0x197)](_0x413fda(0x1a3),()=>{const _0x436336=_0x413fda;if(state[_0x436336(0x240)])copyText(state[_0x436336(0x240)]);else toast(_0x436336(0x18a),_0x436336(0x21e));}),document[_0x413fda(0x169)](_0x413fda(0x246))[_0x413fda(0x197)](_0x413fda(0x1a3),async()=>{const _0x21c1a0=_0x413fda;if(!state[_0x21c1a0(0x240)])return;await refreshInbox(),toast(_0x21c1a0(0x215),_0x21c1a0(0x21e));}),document[_0x413fda(0x169)](_0x413fda(0x19c))[_0x413fda(0x197)]('click',toggleSidebar),document[_0x413fda(0x190)]('.nav-item')['forEach'](_0x524597=>{const _0x2e24c9=_0x413fda;_0x524597[_0x2e24c9(0x197)]('click',()=>{const _0x5815a5=_0x2e24c9;switchView(_0x524597['dataset'][_0x5815a5(0x233)]),document[_0x5815a5(0x169)](_0x5815a5(0x1f1))['classList'][_0x5815a5(0x1ad)](_0x5815a5(0x189));});}),document[_0x413fda(0x190)]('.render-tab')[_0x413fda(0x1d3)](_0x541fea=>{const _0x1e26ff=_0x413fda;_0x541fea[_0x1e26ff(0x197)](_0x1e26ff(0x1a3),()=>setActiveTab(_0x541fea['dataset'][_0x1e26ff(0x204)]));}),document[_0x413fda(0x169)]('viewSourceBtn')['addEventListener'](_0x413fda(0x1a3),openSourceModal),document[_0x413fda(0x169)](_0x413fda(0x19f))[_0x413fda(0x197)](_0x413fda(0x1a3),openHeadersModal),document[_0x413fda(0x169)](_0x413fda(0x1e4))['addEventListener'](_0x413fda(0x1a3),deleteSelectedEmail),document[_0x413fda(0x169)](_0x413fda(0x184))[_0x413fda(0x197)](_0x413fda(0x1a3),closeSourceModal),document[_0x413fda(0x169)](_0x413fda(0x1e8))[_0x413fda(0x197)](_0x413fda(0x1a3),closeSourceModal),document['getElementById'](_0x413fda(0x1ef))[_0x413fda(0x197)]('click',closeHeadersModal),document[_0x413fda(0x169)]('headersModalBackdrop')[_0x413fda(0x197)](_0x413fda(0x1a3),closeHeadersModal),document[_0x413fda(0x169)]('settingCopyBtn')['addEventListener'](_0x413fda(0x1a3),()=>{if(state['currentAddress'])copyText(state['currentAddress']);}),document[_0x413fda(0x169)](_0x413fda(0x21c))[_0x413fda(0x197)](_0x413fda(0x1a3),clearAllEmails),document[_0x413fda(0x169)](_0x413fda(0x237))['addEventListener'](_0x413fda(0x1a3),()=>{const _0x164d51=_0x413fda;document['getElementById'](_0x164d51(0x1ab))[_0x164d51(0x194)][_0x164d51(0x1fb)](_0x164d51(0x225));}),document[_0x413fda(0x169)](_0x413fda(0x207))[_0x413fda(0x197)](_0x413fda(0x1a3),()=>{const _0x18d908=_0x413fda;document[_0x18d908(0x169)]('customAddressForm')[_0x18d908(0x194)][_0x18d908(0x20f)](_0x18d908(0x225));}),document[_0x413fda(0x169)](_0x413fda(0x16b))[_0x413fda(0x197)]('click',()=>{const _0x2fd8a7=_0x413fda,_0x2ade9f=document[_0x2fd8a7(0x169)]('customUsername')[_0x2fd8a7(0x1bf)][_0x2fd8a7(0x18b)]()[_0x2fd8a7(0x1f7)](),_0x11ba55=document[_0x2fd8a7(0x169)]('customDomainSelect')[_0x2fd8a7(0x1bf)];if(!_0x2ade9f||!/^[a-z0-9._-]{3,30}$/[_0x2fd8a7(0x236)](_0x2ade9f)){toast(_0x2fd8a7(0x1b2),_0x2fd8a7(0x1cf));return;}document['getElementById'](_0x2fd8a7(0x1ab))[_0x2fd8a7(0x194)][_0x2fd8a7(0x20f)](_0x2fd8a7(0x225)),document[_0x2fd8a7(0x169)](_0x2fd8a7(0x1c6))[_0x2fd8a7(0x1bf)]='',createInbox(_0x2ade9f,_0x11ba55);}),document[_0x413fda(0x169)](_0x413fda(0x221))[_0x413fda(0x197)]('change',function(){const _0x3d996e=_0x413fda;if(state[_0x3d996e(0x240)]){const _0x391fba=state[_0x3d996e(0x240)][_0x3d996e(0x23b)]('@')[0x0];createInbox(_0x391fba,this[_0x3d996e(0x1bf)]);}}),document[_0x413fda(0x197)](_0x413fda(0x1cd),_0x4b11af=>{const _0x515991=_0x413fda;_0x4b11af[_0x515991(0x1ed)]===_0x515991(0x1a6)&&(closeSourceModal(),closeHeadersModal(),document[_0x515991(0x169)](_0x515991(0x1f1))[_0x515991(0x194)][_0x515991(0x1ad)](_0x515991(0x189)));});}async function init(){const _0x4774c6=_0x2795d3;bindEvents(),await loadDomains();const _0x5c3e9b=store[_0x4774c6(0x1c4)](_0x4774c6(0x17d)),_0x5d652d=store[_0x4774c6(0x1c4)]('lastAddress');state['sessionId']=_0x5c3e9b,state[_0x4774c6(0x242)]=store['get'](_0x4774c6(0x242))||[];if(_0x5d652d){const _0x176641=await loadExistingInbox(_0x5d652d);if(!_0x176641)await createInbox();}else await createInbox();_0x4774c6(0x1ce)in window&&Notification[_0x4774c6(0x205)]==='default'&&Notification[_0x4774c6(0x216)]();}document[_0x2795d3(0x197)]('DOMContentLoaded',init),window[_0x2795d3(0x1a8)]=restoreInbox,window[_0x2795d3(0x1f5)]=copyText;
+//
+"use strict";
+
+// ==========================================
+// NAGETHA — Frontend Application
+// ==========================================
+
+const API = {
+  base: "",
+  async post(path, body) {
+    const r = await fetch(API.base + path, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body)
+    });
+    return r.json();
+  },
+  async get(path) {
+    const r = await fetch(API.base + path);
+    return r.json();
+  },
+  async del(path) {
+    const r = await fetch(API.base + path, { method: "DELETE" });
+    return r.json();
+  }
+};
+
+// ==========================================
+// STATE
+// ==========================================
+
+const state = {
+  currentAddress: null,
+  currentInbox: null,
+  sessionId: null,
+  emails: [],
+  selectedEmailId: null,
+  selectedEmailData: null,
+  domains: [],
+  history: [],
+  sse: null,
+  currentView: "inbox"
+};
+
+// ==========================================
+// STORAGE
+// ==========================================
+
+const store = {
+  get(key) { try { return JSON.parse(localStorage.getItem("ngt_" + key)); } catch { return null; } },
+  set(key, val) { try { localStorage.setItem("ngt_" + key, JSON.stringify(val)); } catch {} },
+  remove(key) { localStorage.removeItem("ngt_" + key); }
+};
+
+// ==========================================
+// TOAST
+// ==========================================
+
+function toast(message, type = "info", duration = 3000) {
+  const container = document.getElementById("toastContainer");
+  const el = document.createElement("div");
+  el.className = `toast ${type}`;
+  el.textContent = message;
+  container.appendChild(el);
+  setTimeout(() => {
+    el.style.animation = "slideOut 0.25s ease forwards";
+    setTimeout(() => el.remove(), 250);
+  }, duration);
+}
+
+// ==========================================
+// FORMATTING
+// ==========================================
+
+function formatTime(dateStr) {
+  const d = new Date(dateStr);
+  const now = new Date();
+  const diff = now - d;
+  if (diff < 60000) return "just now";
+  if (diff < 3600000) return Math.floor(diff / 60000) + "m ago";
+  if (diff < 86400000) return d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  return d.toLocaleDateString([], { month: "short", day: "numeric" });
+}
+
+function formatDate(dateStr) {
+  return new Date(dateStr).toLocaleString([], { dateStyle: "medium", timeStyle: "short" });
+}
+
+function getInitial(name, address) {
+  const src = name || address || "?";
+  return src.trim().charAt(0).toUpperCase();
+}
+
+function avatarColor(str) {
+  const colors = ["#6366f1","#8b5cf6","#06b6d4","#10b981","#f59e0b","#ef4444","#ec4899"];
+  let h = 0;
+  for (const c of (str || "")) h = (h * 31 + c.charCodeAt(0)) & 0xffffffff;
+  return colors[Math.abs(h) % colors.length];
+}
+
+function humanSize(bytes) {
+  if (!bytes) return "0 B";
+  const units = ["B","KB","MB","GB"];
+  let i = 0;
+  while (bytes >= 1024 && i < 3) { bytes /= 1024; i++; }
+  return bytes.toFixed(1) + " " + units[i];
+}
+
+// ==========================================
+// DOMAINS
+// ==========================================
+
+async function loadDomains() {
+  try {
+    const res = await API.get("/api/domains");
+    state.domains = res.domains || ["noxxyrorr.biz.id"];
+  } catch {
+    state.domains = ["noxxyrorr.biz.id"];
+  }
+  renderDomainSelects();
+}
+
+function renderDomainSelects() {
+  const selects = [
+    document.getElementById("domainSelect"),
+    document.getElementById("customDomainSelect")
+  ];
+  selects.forEach(sel => {
+    if (!sel) return;
+    sel.innerHTML = state.domains.map(d => `<option value="${d}">${d}</option>`).join("");
+  });
+}
+
+// ==========================================
+// INBOX CREATION
+// ==========================================
+
+async function createInbox(username, domain) {
+  const sessionId = state.sessionId || generateSessionId();
+  state.sessionId = sessionId;
+  store.set("sessionId", sessionId);
+
+  updateStatus("connecting");
+  setAddressText("Generating...");
+
+  try {
+    const res = await API.post("/api/inbox", { username, domain, sessionId });
+    if (!res.success) {
+      toast(res.error || "Failed to create inbox", "error");
+      return;
+    }
+
+    state.currentAddress = res.inbox.address;
+    state.currentInbox = res.inbox;
+    state.emails = res.emails || [];
+    state.selectedEmailId = null;
+
+    store.set("lastAddress", res.inbox.address);
+    addToHistory(res.inbox);
+
+    setAddressText(state.currentAddress);
+    updateDomainSelect(res.inbox.domain);
+    renderEmailList();
+    resetViewer();
+    // connectSSE(state.currentAddress);
+    // startPolling();
+    updateAnalytics();
+    updateSettings();
+    toast("Inbox ready", "success");
+  } catch (err) {
+    console.error(err);
+    toast("Network error. Retrying...", "error");
+    updateStatus("disconnected");
+  }
+}
+
+function generateSessionId() {
+  return Array.from(crypto.getRandomValues(new Uint8Array(16))).map(b => b.toString(16).padStart(2, "0")).join("");
+}
+
+async function loadExistingInbox(address) {
+  try {
+    const res = await API.get(`/api/inbox?address=${encodeURIComponent(address)}`);
+    if (res.success) {
+      state.currentAddress = res.inbox.address;
+      state.currentInbox = res.inbox;
+      state.emails = res.emails || [];
+      setAddressText(state.currentAddress);
+      updateDomainSelect(res.inbox.domain);
+      renderEmailList();
+      // connectSSE(state.currentAddress);
+      // startPolling();
+      updateAnalytics();
+      updateSettings();
+      return true;
+    }
+  } catch {}
+  return false;
+}
+
+function addToHistory(inbox) {
+  const history = store.get("history") || [];
+  const idx = history.findIndex(h => h.address === inbox.address);
+  if (idx !== -1) history.splice(idx, 1);
+  history.unshift({ address: inbox.address, domain: inbox.domain, createdAt: inbox.createdAt || new Date().toISOString() });
+  if (history.length > 20) history.pop();
+  store.set("history", history);
+  state.history = history;
+  renderHistory();
+}
+
+// ==========================================
+// SSE — REAL-TIME
+// ==========================================
+
+async function refreshInbox() {
+  if (!state.currentAddress) return;
+
+  try {
+    const res = await API.get(
+      `/api/inbox?address=${encodeURIComponent(state.currentAddress)}`
+    );
+
+    if (res.success) {
+      state.emails = res.emails || [];
+      renderEmailList();
+      updateAnalytics();
+      updateStatus("connected");
+    }
+  } catch (err) {
+    updateStatus("disconnected");
+  }
+}
+
+/*let refreshTimer = null;
+
+async function refreshInbox() {
+  if (!state.currentAddress) return;
+
+  try {
+    const res = await API.get(
+      `/api/inbox?address=${encodeURIComponent(state.currentAddress)}`
+    );
+
+    if (res.success) {
+      state.emails = res.emails || [];
+      renderEmailList();
+      updateAnalytics();
+      updateStatus("connected");
+    }
+  } catch (err) {
+    updateStatus("disconnected");
+  }
+}
+
+function startPolling() {
+  if (refreshTimer) {
+    clearInterval(refreshTimer);
+  }
+
+  refreshInbox(); // langsung refresh sekali
+  refreshTimer = setInterval(refreshInbox, 10000); // setiap 10 detik
+}*/
+
+/*function startPolling() {
+  if (refreshTimer) {
+    clearInterval(refreshTimer);
+  }
+
+  refreshInbox(); // langsung refresh sekali
+  refreshTimer = setInterval(refreshInbox, 10000); // setiap 10 detik
+}
+
+function stopPolling() {
+  if (refreshTimer) {
+    clearInterval(refreshTimer);
+    refreshTimer = null;
+  }
+}
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    stopPolling();
+  } else if (state.currentAddress) {
+    startPolling();
+  }
+});
+*/
+
+/*function connectSSE(address) {
+  if (state.sse) {
+    state.sse.close();
+    state.sse = null;
+  }
+
+  updateStatus("connecting");
+
+  const url = `/api/stream?address=${encodeURIComponent(address)}`;
+  const es = new EventSource(url);
+  state.sse = es;
+
+  es.addEventListener("connected", () => {
+    updateStatus("connected");
+  });
+
+  es.addEventListener("new_email", (e) => {
+    try {
+      const email = JSON.parse(e.data);
+      state.emails.unshift(email);
+      renderEmailList();
+      updateAnalytics();
+      showNewEmailNotification(email);
+    } catch {}
+  });
+
+  es.onerror = () => {
+    updateStatus("disconnected");
+    setTimeout(() => {
+      if (state.currentAddress) connectSSE(state.currentAddress);
+    }, 5000);
+  };
+}*/
+
+function updateStatus(status) {
+  const dot = document.getElementById("statusDot");
+  const text = document.getElementById("statusText");
+  dot.className = "status-dot " + status;
+  const labels = { connected: "Live", connecting: "Connecting", disconnected: "Offline" };
+  text.textContent = labels[status] || status;
+}
+
+function showNewEmailNotification(email) {
+  const from = email.from?.name || email.from?.address || "Unknown";
+  toast(`New email from ${from}`, "info");
+  if ("Notification" in window && Notification.permission === "granted") {
+    new Notification("NAGETHA — New Email", { body: `${from}: ${email.subject}`, icon: "/favicon.ico" });
+  }
+}
+
+// ==========================================
+// EMAIL LIST
+// ==========================================
+
+function renderEmailList() {
+  const list = document.getElementById("emailList");
+  const empty = document.getElementById("emptyState");
+  const countEl = document.getElementById("emailCount");
+
+  const unread = state.emails.filter(e => !e.read).length;
+  countEl.textContent = `Inbox${unread ? ` (${unread})` : ""}`;
+
+  if (!state.emails.length) {
+    empty.style.display = "flex";
+    list.querySelectorAll(".email-item").forEach(el => el.remove());
+    return;
+  }
+
+  empty.style.display = "none";
+
+  const existing = new Set(Array.from(list.querySelectorAll(".email-item")).map(el => el.dataset.id));
+  const incoming = new Set(state.emails.map(e => String(e._id)));
+
+  list.querySelectorAll(".email-item").forEach(el => {
+    if (!incoming.has(el.dataset.id)) el.remove();
+  });
+
+  state.emails.forEach((email, idx) => {
+    const id = String(email._id);
+    let item = list.querySelector(`.email-item[data-id="${id}"]`);
+    const isActive = state.selectedEmailId === id;
+    const isUnread = !email.read;
+    const isSpam = (email.spamScore || 0) >= 50;
+
+    const fromName = email.from?.name || email.from?.address || "Unknown";
+    const preview = (email.text || "").replace(/\s+/g, " ").trim().slice(0, 80);
+
+    if (!item) {
+      item = document.createElement("div");
+      item.className = "email-item";
+      item.dataset.id = id;
+      item.addEventListener("click", () => selectEmail(id));
+    }
+
+    item.className = `email-item${isActive ? " active" : ""}${isUnread ? " unread" : ""}`;
+    item.innerHTML = `
+      <div class="email-item-from">
+        <span class="email-item-sender">${escHtml(fromName)}${isSpam ? '<span class="spam-badge">SPAM</span>' : ""}</span>
+        <span class="email-item-time">${formatTime(email.receivedAt)}</span>
+      </div>
+      <div class="email-item-subject">${escHtml(email.subject || "(No Subject)")}</div>
+      <div class="email-item-preview">${escHtml(preview || "No preview available")}</div>
+    `;
+
+    if (!existing.has(id)) {
+      if (idx === 0) {
+        list.insertBefore(item, list.querySelector(".email-item") || empty);
+      } else {
+        list.appendChild(item);
+      }
+    }
+  });
+}
+
+function escHtml(str) {
+  return String(str || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+// ==========================================
+// EMAIL VIEWER
+// ==========================================
+
+async function selectEmail(id) {
+  state.selectedEmailId = id;
+
+  list_update_active(id);
+
+  const localEmail = state.emails.find(e => String(e._id) === id);
+  if (localEmail) localEmail.read = true;
+
+  try {
+    const res = await API.get(`/api/emails/${id}`);
+    if (!res.success) { toast("Failed to load email", "error"); return; }
+    renderEmailViewer(res.email);
+    state.selectedEmailData = res.email;
+  } catch (err) {
+    toast("Failed to load email", "error");
+  }
+}
+
+function list_update_active(id) {
+  document.querySelectorAll(".email-item").forEach(el => {
+    el.classList.toggle("active", el.dataset.id === id);
+    if (el.dataset.id === id) el.classList.remove("unread");
+  });
+}
+
+function renderEmailViewer(email) {
+  document.getElementById("viewerPlaceholder").classList.add("hidden");
+  const content = document.getElementById("emailContent");
+  content.classList.remove("hidden");
+
+  const fromName = email.from?.name || email.from?.address || "Unknown";
+  const fromAddr = email.from?.address || "";
+  const initial = getInitial(fromName, fromAddr);
+  const color = avatarColor(fromAddr);
+
+  const avatar = document.getElementById("senderAvatar");
+  avatar.textContent = initial;
+  avatar.style.background = color;
+
+  document.getElementById("emailSubjectFull").textContent = email.subject || "(No Subject)";
+  document.getElementById("emailFromFull").textContent = `${fromName} <${fromAddr}>`;
+  document.getElementById("emailDateFull").textContent = formatDate(email.receivedAt);
+
+  const frame = document.getElementById("emailFrame");
+  if (email.html) {
+    const blob = new Blob([email.html], { type: "text/html" });
+    const url = URL.createObjectURL(blob);
+    frame.src = url;
+    document.getElementById("emailBodyHtml").classList.remove("hidden");
+  } else {
+    document.getElementById("emailBodyHtml").classList.add("hidden");
+  }
+
+  const textEl = document.getElementById("emailBodyText");
+  textEl.textContent = email.text || "(No text content)";
+
+  const attEl = document.getElementById("emailAttachments");
+  attEl.innerHTML = "";
+  if (email.attachments?.length) {
+    email.attachments.forEach(att => {
+      const chip = document.createElement("div");
+      chip.className = "attachment-chip";
+      chip.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13"/></svg> ${escHtml(att.filename)} <span style="color:var(--text-tertiary)">${humanSize(att.size)}</span>`;
+      attEl.appendChild(chip);
+    });
+  }
+
+  setActiveTab("html");
+}
+
+function setActiveTab(tab) {
+  document.querySelectorAll(".render-tab").forEach(t => t.classList.toggle("active", t.dataset.tab === tab));
+  document.getElementById("emailBodyHtml").classList.toggle("hidden", tab !== "html");
+  document.getElementById("emailBodyText").classList.toggle("hidden", tab !== "text");
+}
+
+function resetViewer() {
+  state.selectedEmailId = null;
+  state.selectedEmailData = null;
+  document.getElementById("viewerPlaceholder").classList.remove("hidden");
+  document.getElementById("emailContent").classList.add("hidden");
+}
+
+// ==========================================
+// ANALYTICS
+// ==========================================
+
+function updateAnalytics() {
+  const total = state.emails.length;
+  const unread = state.emails.filter(e => !e.read).length;
+  document.getElementById("statTotal").textContent = total;
+  document.getElementById("statUnread").textContent = unread;
+
+  if (state.currentInbox) {
+    const created = new Date(state.currentInbox.createdAt || Date.now());
+    const ageMs = Date.now() - created;
+    const ageHours = Math.floor(ageMs / 3600000);
+    const ageMins = Math.floor((ageMs % 3600000) / 60000);
+    document.getElementById("statAge").textContent = ageHours > 0 ? `${ageHours}h ${ageMins}m` : `${ageMins}m`;
+
+    const expires = new Date(state.currentInbox.expiresAt);
+    const remainMs = expires - Date.now();
+    if (remainMs > 0) {
+      const remH = Math.floor(remainMs / 3600000);
+      const remM = Math.floor((remainMs % 3600000) / 60000);
+      document.getElementById("statExpiry").textContent = `${remH}h ${remM}m`;
+    } else {
+      document.getElementById("statExpiry").textContent = "Expired";
+    }
+  }
+}
+
+// ==========================================
+// HISTORY
+// ==========================================
+
+function renderHistory() {
+  const container = document.getElementById("historyList");
+  const history = store.get("history") || [];
+  if (!history.length) {
+    container.innerHTML = `<p style="color:var(--text-tertiary);font-size:13px">No history yet. Generated inboxes will appear here.</p>`;
+    return;
+  }
+  container.innerHTML = history.map(h => `
+    <div class="history-card${h.address === state.currentAddress ? " current" : ""}" data-address="${escHtml(h.address)}">
+      <div>
+        <div class="history-address">${escHtml(h.address)}</div>
+        <div class="history-meta">Created ${formatDate(h.createdAt)}</div>
+      </div>
+      <div class="history-actions">
+        <button class="btn btn-ghost btn-sm" onclick="restoreInbox('${escHtml(h.address)}')">Restore</button>
+        <button class="btn btn-ghost btn-sm" onclick="copyText('${escHtml(h.address)}')">Copy</button>
+      </div>
+    </div>
+  `).join("");
+}
+
+async function restoreInbox(address) {
+  const ok = await loadExistingInbox(address);
+  if (!ok) {
+    toast("Inbox expired or not found. Creating new one...", "info");
+    await createInbox();
+  } else {
+    toast("Inbox restored", "success");
+    switchView("inbox");
+  }
+}
+
+// ==========================================
+// SETTINGS
+// ==========================================
+
+function updateSettings() {
+  const addr = state.currentAddress || "—";
+  const el = document.getElementById("settingAddress");
+  if (el) el.textContent = addr;
+}
+
+// ==========================================
+// DOMAIN SELECT SYNC
+// ==========================================
+
+function updateDomainSelect(domain) {
+  const sel = document.getElementById("domainSelect");
+  if (sel && domain) sel.value = domain;
+}
+
+// ==========================================
+// VIEWS
+// ==========================================
+
+function switchView(view) {
+  state.currentView = view;
+  document.querySelectorAll(".view").forEach(el => el.classList.toggle("hidden", el.id !== `view-${view}`));
+  document.querySelectorAll(".nav-item").forEach(btn => btn.classList.toggle("active", btn.dataset.view === view));
+
+  if (view === "history") renderHistory();
+  if (view === "analytics") updateAnalytics();
+}
+
+// ==========================================
+// ADDRESS BAR HELPERS
+// ==========================================
+
+function setAddressText(text) {
+  document.getElementById("currentAddress").textContent = text;
+}
+
+function copyText(text) {
+  navigator.clipboard.writeText(text).then(() => toast("Copied to clipboard", "success")).catch(() => toast("Copy failed", "error"));
+}
+
+// ==========================================
+// MODALS
+// ==========================================
+
+function openSourceModal() {
+  if (!state.selectedEmailData) return;
+  const code = JSON.stringify(state.selectedEmailData, null, 2);
+  document.getElementById("sourceCode").textContent = code;
+  document.getElementById("sourceModal").classList.remove("hidden");
+}
+
+function closeSourceModal() {
+  document.getElementById("sourceModal").classList.add("hidden");
+}
+
+function openHeadersModal() {
+  if (!state.selectedEmailData) return;
+  const headers = state.selectedEmailData.headers || {};
+  const list = document.getElementById("headersList");
+  list.innerHTML = Object.entries(headers).map(([k, v]) => `
+    <div class="header-row">
+      <span class="header-key">${escHtml(k)}</span>
+      <span class="header-value">${escHtml(v)}</span>
+    </div>
+  `).join("") || "<p style='color:var(--text-tertiary);font-size:13px'>No headers available</p>";
+  document.getElementById("headersModal").classList.remove("hidden");
+}
+
+function closeHeadersModal() {
+  document.getElementById("headersModal").classList.add("hidden");
+}
+
+// ==========================================
+// DELETE EMAIL
+// ==========================================
+
+async function deleteSelectedEmail() {
+  if (!state.selectedEmailId) return;
+  const id = state.selectedEmailId;
+  try {
+    const res = await API.del(`/api/emails/${id}`);
+    if (res.success) {
+      state.emails = state.emails.filter(e => String(e._id) !== id);
+      resetViewer();
+      renderEmailList();
+      updateAnalytics();
+      toast("Email deleted", "success");
+    } else {
+      toast("Failed to delete email", "error");
+    }
+  } catch {
+    toast("Failed to delete email", "error");
+  }
+}
+
+async function clearAllEmails() {
+  if (!confirm("Delete all emails in this inbox? This cannot be undone.")) return;
+  const ids = state.emails.map(e => String(e._id));
+  let deleted = 0;
+  for (const id of ids) {
+    try {
+      const res = await API.del(`/api/emails/${id}`);
+      if (res.success) deleted++;
+    } catch {}
+  }
+  state.emails = [];
+  resetViewer();
+  renderEmailList();
+  updateAnalytics();
+  toast(`Deleted ${deleted} email${deleted !== 1 ? "s" : ""}`, "success");
+}
+
+// ==========================================
+// SIDEBAR TOGGLE (mobile)
+// ==========================================
+
+function toggleSidebar() {
+  document.getElementById("sidebar").classList.toggle("open");
+}
+
+// ==========================================
+// EVENT BINDING
+// ==========================================
+
+function bindEvents() {
+  document.getElementById("generateBtn").addEventListener("click", () => {
+    const domain = document.getElementById("domainSelect").value;
+    createInbox(null, domain);
+  });
+
+  document.getElementById("copyBtn").addEventListener("click", () => {
+    if (state.currentAddress) copyText(state.currentAddress);
+    else toast("No address yet", "info");
+  });
+
+  /*document.getElementById("refreshBtn").addEventListener("click", async () => {
+    if (!state.currentAddress) return;
+    await loadExistingInbox(state.currentAddress);
+    toast("Refreshed", "info");
+  });*/
+
+  document.getElementById("refreshBtn").addEventListener("click", async () => {
+      if (!state.currentAddress) return;
+        await refreshInbox();
+          toast("Refreshed", "info");
+        });
+
+  document.getElementById("sidebarToggle").addEventListener("click", toggleSidebar);
+
+  document.querySelectorAll(".nav-item").forEach(btn => {
+    btn.addEventListener("click", () => {
+      switchView(btn.dataset.view);
+      document.getElementById("sidebar").classList.remove("open");
+    });
+  });
+
+  document.querySelectorAll(".render-tab").forEach(tab => {
+    tab.addEventListener("click", () => setActiveTab(tab.dataset.tab));
+  });
+
+  document.getElementById("viewSourceBtn").addEventListener("click", openSourceModal);
+  document.getElementById("viewHeadersBtn").addEventListener("click", openHeadersModal);
+  document.getElementById("deleteEmailBtn").addEventListener("click", deleteSelectedEmail);
+
+  document.getElementById("sourceModalClose").addEventListener("click", closeSourceModal);
+  document.getElementById("sourceModalBackdrop").addEventListener("click", closeSourceModal);
+  document.getElementById("headersModalClose").addEventListener("click", closeHeadersModal);
+  document.getElementById("headersModalBackdrop").addEventListener("click", closeHeadersModal);
+
+  document.getElementById("settingCopyBtn").addEventListener("click", () => {
+    if (state.currentAddress) copyText(state.currentAddress);
+  });
+
+  document.getElementById("clearAllBtn").addEventListener("click", clearAllEmails);
+
+  document.getElementById("customToggle").addEventListener("click", () => {
+    document.getElementById("customAddressForm").classList.toggle("hidden");
+  });
+
+  document.getElementById("customCancelBtn").addEventListener("click", () => {
+    document.getElementById("customAddressForm").classList.add("hidden");
+  });
+
+  document.getElementById("customGenerateBtn").addEventListener("click", () => {
+    const username = document.getElementById("customUsername").value.trim().toLowerCase();
+    const domain = document.getElementById("customDomainSelect").value;
+    if (!username || !/^[a-z0-9._-]{3,30}$/.test(username)) {
+      toast("Invalid username. Use 3-30 chars: letters, numbers, dots, hyphens", "error");
+      return;
+    }
+    document.getElementById("customAddressForm").classList.add("hidden");
+    document.getElementById("customUsername").value = "";
+    createInbox(username, domain);
+  });
+
+  document.getElementById("domainSelect").addEventListener("change", function () {
+    if (state.currentAddress) {
+      const username = state.currentAddress.split("@")[0];
+      createInbox(username, this.value);
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeSourceModal();
+      closeHeadersModal();
+      document.getElementById("sidebar").classList.remove("open");
+    }
+  });
+}
+
+// ==========================================
+// INIT
+// ==========================================
+
+async function init() {
+  bindEvents();
+  await loadDomains();
+
+  const sessionId = store.get("sessionId");
+  const lastAddress = store.get("lastAddress");
+  state.sessionId = sessionId;
+  state.history = store.get("history") || [];
+
+  if (lastAddress) {
+    const ok = await loadExistingInbox(lastAddress);
+    if (!ok) await createInbox();
+  } else {
+    await createInbox();
+  }
+
+  if ("Notification" in window && Notification.permission === "default") {
+    Notification.requestPermission();
+  }
+}
+
+document.addEventListener("DOMContentLoaded", init);
+
+window.restoreInbox = restoreInbox;
+window.copyText = copyText;
+//
