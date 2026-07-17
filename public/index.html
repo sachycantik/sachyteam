@@ -1,565 +1,1497 @@
 <!DOCTYPE html>
-<html lang="id" class="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NOXXY - Premium Temporary Mail Dashboard</title>
-  
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Dapatkan alamat email sementara sekali pakai gratis secara instan. Tanpa daftar, bebas spam, dengan performa super cepat dari NOXXY." />
-  <meta name="keywords" content="temporary email, disposable email, fake email, temp mail, noxxy, noxxyrorr" />
-  <meta name="theme-color" content="#a855f7" />
-  <link rel="canonical" href="https://noxxyrorr.biz.id/" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOXXY — Free Temporary Email, Disposable Inbox | No Signup</title>
+  <meta name="description" content="Get a free disposable temporary email address instantly. No signup, no spam. Real-time inbox with NOXXY — the fastest throwaway email service." />
+  <meta name="keywords" content="temporary email, disposable email, throwaway email, fake email, temp mail, anonymous email, no signup email, free temporary inbox" />
+  <meta name="author" content="NOXXY TECH" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0b0b14" />
+  <link rel="canonical" href="https://nagetha.vtech.biz.id/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nagetha.vtech.biz.id/" />
+  <meta property="og:title" content="NOXXY — Free Temporary Email, No Signup" />
+  <meta property="og:description" content="Get a free disposable temporary email address instantly. Real-time inbox, no registration required." />
+  <meta property="og:image" content="https://nagetha.vtech.biz.id/favicon.svg" />
+  <meta property="og:site_name" content="NOXXY TECH" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NOXXY — Free Temporary Email, No Signup" />
+  <meta name="twitter:description" content="Get a free disposable temporary email address instantly. Real-time inbox, no registration required." />
+  <link rel="icon" href="logo-mark.png" type="image/png" />
+  <link rel="apple-touch-icon" href="logo-mark.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <!-- Google Fonts & Tailwind CSS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Phosphor Icons untuk ikon modern & bersih -->
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            display: ['"Space Grotesk"', 'sans-serif'],
-          },
-          colors: {
-            brand: {
-              dark: '#07080e',
-              card: '#0c0e17',
-              border: 'rgba(168, 85, 247, 0.15)',
-              purple: '#a855f7',
-              cyan: '#22d3ee'
-            }
-          }
-        }
-      }
-    }
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"NOXXY","url":"https://nagetha.vtech.biz.id/","description":"Free disposable temporary email service.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
 
   <style>
-    /* Animasi background glow */
-    .glow-bg {
-      position: absolute;
-      width: 400px;
-      height: 400px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(168, 85, 247, 0.08) 0%, transparent 70%);
-      filter: blur(40px);
-      z-index: 0;
-      pointer-events: none;
-    }
-    
-    /* Scrollbar minimalis custom */
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: rgba(255, 255, 255, 0.02);
-    }
-    ::-webkit-scrollbar-thumb {
-      background: rgba(168, 85, 247, 0.2);
-      border-radius: 10px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgba(168, 85, 247, 0.4);
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #06060a;
+      --bg-2:       #0b0b16;
+      --bg-card:    rgba(17,17,28,0.72);
+      --bg-card-solid: #12121e;
+      --border:     rgba(217,70,239,0.22);
+      --border-md:  rgba(217,70,239,0.42);
+      --border-lg:  rgba(217,70,239,0.7);
+      --border-cyan: rgba(34,211,238,0.4);
+      --text:       #f1f1f8;
+      --text-2:     #9d9db2;
+      --text-3:     #63637c;
+      --magenta:    #e935c9;
+      --magenta-2:  #c026d3;
+      --purple:     #8b5cf6;
+      --cyan:       #22d3ee;
+      --cyan-2:     #06b6d4;
+      --accent:     #d946ef;
+      --gold:       #f59e0b;
+      --success:    #10b981;
+      --danger:     #f43f5e;
+      --mono:       "JetBrains Mono", monospace;
+      --display:    "Orbitron", sans-serif;
+      --sans:       "Rajdhani", system-ui, sans-serif;
+      --grad-brand: linear-gradient(120deg, var(--magenta) 0%, var(--purple) 52%, var(--cyan) 100%);
+      --shadow-sm:  0 2px 14px rgba(0,0,0,0.4);
+      --shadow-md:  0 6px 28px rgba(0,0,0,0.5);
+      --shadow-lg:  0 10px 46px rgba(0,0,0,0.6);
+      --glow-m:     0 0 22px rgba(217,70,239,0.35);
+      --glow-c:     0 0 22px rgba(34,211,238,0.3);
+      --r:          10px;
+      --r-lg:       14px;
     }
 
-    /* Iframe reader fluid height container */
-    #reader-iframe {
+    html, body {
+      height: 100%;
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── ANIMATED BACKGROUND ── */
+    .bg-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+      background: var(--bg);
+    }
+
+    .bg-canvas::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(217,70,239,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34,211,238,0.05) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 85%);
+    }
+
+    .bg-canvas::after {
+      content: "";
+      position: absolute;
+      top: -22%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1200px;
+      height: 700px;
+      background: radial-gradient(ellipse at 50% 0%,
+        rgba(139,92,246,0.22) 0%,
+        rgba(217,70,239,0.1) 38%,
+        transparent 70%);
+      animation: beamFloat 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes beamFloat {
+      0%   { transform: translateX(-50%) translateY(0) scale(1); }
+      100% { transform: translateX(-50%) translateY(24px) scale(1.04); }
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+    }
+
+    .blob-1 {
+      width: 520px; height: 520px;
+      background: radial-gradient(circle, rgba(217,70,239,0.16) 0%, transparent 70%);
+      top: -12%; left: -16%;
+      animation: blobFloat 22s ease-in-out infinite alternate;
+    }
+    .blob-2 {
+      width: 460px; height: 460px;
+      background: radial-gradient(circle, rgba(34,211,238,0.14) 0%, transparent 70%);
+      top: 30%; right: -12%;
+      animation: blobFloat 28s ease-in-out infinite alternate-reverse;
+    }
+    .blob-3 {
+      width: 380px; height: 380px;
+      background: radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%);
+      bottom: 8%; left: 22%;
+      animation: blobFloat 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes blobFloat {
+      0%   { transform: translate(0,0) scale(1); }
+      33%  { transform: translate(20px,-15px) scale(1.03); }
+      66%  { transform: translate(-12px,20px) scale(0.97); }
+      100% { transform: translate(14px,10px) scale(1.02); }
+    }
+
+    /* floating tech glyphs instead of hearts */
+    .heart-deco {
+      position: fixed;
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 600;
+      opacity: 0;
+      color: var(--magenta);
+      animation: heartRise linear infinite;
+      pointer-events: none;
+      z-index: 0;
+      user-select: none;
+      text-shadow: 0 0 10px currentColor;
+    }
+    .heart-deco.cyan { color: var(--cyan); }
+    @keyframes heartRise {
+      0%   { opacity: 0; transform: translateY(0) scale(0.6) rotate(-6deg); }
+      15%  { opacity: 0.55; }
+      85%  { opacity: 0.35; }
+      100% { opacity: 0; transform: translateY(-110vh) scale(1.1) rotate(10deg); }
+    }
+
+    header, .hero, .address-wrap, .inbox-wrap, .features, footer, .toasts {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(6,6,10,0.75);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 42px;
+      width: auto;
+      display: block;
+      filter: drop-shadow(0 0 12px rgba(217,70,239,0.25));
+      animation: logoHeart 3s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes logoHeart {
+      0%,100% { transform: scale(1); }
+      40%     { transform: scale(1.05); }
+      60%     { transform: scale(0.98); }
+    }
+
+    .header-right { display: flex; align-items: center; gap: 8px; }
+
+    /* ── STATUS BADGE ── */
+    .live-badge {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 13px 5px 9px;
+      border-radius: 3px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--text-3);
+      font-family: var(--mono);
+      transition: all 0.4s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .live-badge.state-on {
+      background: rgba(16,185,129,0.08);
+      border-color: rgba(16,185,129,0.4);
+      color: #34d399;
+      box-shadow: 0 0 14px rgba(16,185,129,0.15);
+    }
+
+    .live-badge.state-connecting {
+      background: rgba(245,158,11,0.08);
+      border-color: rgba(245,158,11,0.4);
+      color: #fbbf24;
+    }
+
+    .live-badge.state-offline {
+      background: rgba(244,63,94,0.08);
+      border-color: rgba(244,63,94,0.35);
+      color: var(--danger);
+    }
+
+    .live-icon {
+      position: relative;
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .live-ring {
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      border: 1.5px solid currentColor;
+      opacity: 0;
+    }
+
+    .live-badge.state-on .live-ring {
+      animation: liveRing 2s ease-out infinite;
+      opacity: 1;
+    }
+
+    @keyframes liveRing {
+      0%   { transform: scale(0.7); opacity: 0.9; }
+      100% { transform: scale(1.7); opacity: 0; }
+    }
+
+    .live-dot-new {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+      position: relative;
+      z-index: 1;
+    }
+
+    .live-badge.state-on .live-dot-new { box-shadow: 0 0 6px currentColor; }
+
+    .live-badge.state-connecting .live-dot-new {
+      animation: dotBlink 1s ease-in-out infinite;
+    }
+
+    @keyframes dotBlink { 0%,100%{opacity:1} 50%{opacity:0.25} }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      background: rgba(34,211,238,0.06);
+      border: 1px solid var(--border-cyan);
+      clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+      padding: 7px 18px;
+      margin-bottom: 26px;
+    }
+
+    .hero-eyebrow b { color: var(--magenta); }
+
+    .hero-title {
+      font-family: var(--display);
+      font-size: clamp(26px, 5vw, 44px);
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 16px;
+      line-height: 1.28;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+    }
+
+    .hero-title .shimmer {
+      background: linear-gradient(90deg, var(--magenta), var(--purple), var(--cyan), var(--magenta));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmerText 3s linear infinite;
+    }
+
+    .hero-title .bounce-word {
+      display: inline-block;
+      color: var(--cyan);
+      text-shadow: 0 0 18px rgba(34,211,238,0.5);
+      animation: wordBounce 1.8s ease-in-out infinite;
+    }
+
+    @keyframes shimmerText {
+      0%   { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    @keyframes wordBounce {
+      0%,100% { transform: translateY(0); }
+      50%     { transform: translateY(-7px); }
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--text-2);
+      max-width: 420px;
+      margin: 0 auto;
+      line-height: 1.7;
+      font-weight: 500;
+    }
+
+    /* ── FEATURES ── */
+    .features {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 20px 30px;
+      flex-wrap: wrap;
+    }
+
+    .feature-pill {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--mono);
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--text-2);
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 6px 13px;
+      transition: all 0.2s;
+    }
+
+    .feature-pill:hover {
+      background: rgba(217,70,239,0.06);
+      border-color: var(--border-md);
+      color: var(--text);
+      transform: translateY(-2px);
+    }
+
+    /* ── ADDRESS BOX ── */
+    .address-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 0 20px 30px;
+    }
+
+    .address-box {
       width: 100%;
-      min-height: 380px;
+      max-width: 620px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-md);
+      border-radius: var(--r-lg);
+      padding: 22px 22px 18px;
+      transition: border-color 0.25s, box-shadow 0.25s;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+
+    .address-box::before, .address-box::after {
+      content: "";
+      position: absolute;
+      width: 18px; height: 18px;
+      border: 2px solid var(--cyan);
+      opacity: 0.7;
+    }
+    .address-box::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+    .address-box::after  { bottom: -1px; right: -1px; border-left: none; border-top: none; border-color: var(--magenta); }
+
+    .address-box:focus-within {
+      border-color: var(--border-lg);
+      box-shadow: 0 0 0 4px rgba(217,70,239,0.08), var(--shadow-md);
+    }
+
+    .address-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--magenta);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .address-display {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .address-text {
+      flex: 1;
+      font-family: var(--mono);
+      font-size: clamp(13px, 2.5vw, 17px);
+      font-weight: 500;
+      color: var(--cyan);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      text-shadow: 0 0 14px rgba(34,211,238,0.25);
+    }
+
+    .address-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 17px;
+      border-radius: var(--r);
+      font-family: var(--sans);
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      cursor: pointer;
       border: none;
-      background: #ffffff;
-      border-radius: 12px;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+
+    .btn:active { transform: scale(0.95); }
+
+    .btn-emoji { font-size: 13px; line-height: 1; }
+
+    .btn-primary {
+      background: var(--grad-brand);
+      color: #05050a;
+      font-weight: 800;
+      box-shadow: 0 3px 18px rgba(217,70,239,0.3);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.12);
+      box-shadow: 0 5px 24px rgba(217,70,239,0.42);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,0.03);
+      color: var(--text-2);
+      border: 1px solid var(--border);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      border-color: var(--border-md);
+    }
+
+    .btn-fun {
+      background: rgba(139,92,246,0.1);
+      color: #c4b5fd;
+      border: 1px solid rgba(139,92,246,0.35);
+    }
+
+    .btn-fun:hover {
+      background: rgba(139,92,246,0.18);
+      box-shadow: 0 0 16px rgba(139,92,246,0.2);
+    }
+
+    .btn-danger {
+      background: rgba(244,63,94,0.08);
+      color: var(--danger);
+      border: 1px solid rgba(244,63,94,0.3);
+    }
+
+    .btn-danger:hover { background: var(--danger); color: #05050a; }
+
+    .domain-select {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 12.5px;
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: var(--r);
+      cursor: pointer;
+      outline: none;
+    }
+
+    .domain-select:focus { border-color: var(--border-lg); }
+
+    /* ── CUSTOM FORM ── */
+    .custom-form {
+      display: none;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .custom-form.open { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+    .custom-input {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 13px;
+      padding: 8px 12px;
+      border-radius: var(--r);
+      outline: none;
+      width: 160px;
+    }
+
+    .custom-input:focus { border-color: var(--border-lg); }
+
+    .at-sym { color: var(--magenta); font-weight: 700; font-size: 16px; font-family: var(--mono); }
+
+    /* ── INBOX ── */
+    .inbox-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px 56px;
+    }
+
+    .inbox-container { width: 100%; max-width: 620px; }
+
+    .inbox-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .inbox-count {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--text-3);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    /* ── EMAIL CARDS ── */
+    .email-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 15px 18px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: all 0.18s;
+      backdrop-filter: blur(8px);
+    }
+
+    .email-card:hover {
+      border-color: var(--border-md);
+      background: rgba(24,24,38,0.85);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .email-card.unread { border-left: 3px solid var(--magenta); }
+    .email-card.active { border-color: var(--border-lg); background: rgba(30,20,40,0.9); box-shadow: 0 0 0 3px rgba(217,70,239,0.08); }
+
+    .card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+
+    .card-sender {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .card-time { font-size: 11px; color: var(--text-3); flex-shrink: 0; font-family: var(--mono); }
+
+    .card-subject {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-2);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-bottom: 2px;
+    }
+
+    .card-preview { font-size: 12px; color: var(--text-3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    .spam-tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      padding: 1px 7px;
+      background: rgba(245,158,11,0.1);
+      color: var(--gold);
+      border: 1px solid rgba(245,158,11,0.3);
+      border-radius: 3px;
+      margin-left: 6px;
+      font-weight: 600;
+    }
+
+    /* ── EMAIL VIEWER ── */
+    .email-viewer {
+      background: rgba(14,14,24,0.92);
+      border: 1px solid var(--border-md);
+      border-radius: var(--r-lg);
+      margin-bottom: 10px;
+      overflow: hidden;
+      display: none;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .email-viewer.open { display: block; }
+
+    .viewer-header {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      background: rgba(255,255,255,0.015);
+    }
+
+    .viewer-meta { flex: 1; min-width: 0; }
+
+    .viewer-subject { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 6px; line-height: 1.4; }
+    .viewer-from { font-size: 12.5px; color: var(--text-2); margin-bottom: 2px; font-family: var(--mono); }
+    .viewer-date { font-size: 11.5px; color: var(--text-3); font-family: var(--mono); }
+    .viewer-actions { display: flex; gap: 6px; flex-shrink: 0; }
+
+    .viewer-tabs {
+      display: flex;
+      padding: 10px 20px 0;
+      border-bottom: 1px solid var(--border);
+      gap: 0;
+      background: rgba(255,255,255,0.01);
+    }
+
+    .vtab {
+      padding: 7px 14px;
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-3);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      border-bottom: 2.5px solid transparent;
+      margin-bottom: -1px;
+      transition: all 0.15s;
+    }
+
+    .vtab.active { color: var(--cyan); border-bottom-color: var(--cyan); }
+
+    .viewer-body { position: relative; }
+
+    .viewer-body iframe { width: 100%; border: none; min-height: 300px; background: #fff; display: block; }
+
+    .viewer-text {
+      padding: 20px;
+      font-family: var(--mono);
+      font-size: 12.5px;
+      color: var(--text-2);
+      line-height: 1.8;
+      white-space: pre-wrap;
+      word-break: break-word;
+      display: none;
+    }
+
+    /* ── EMPTY STATE ── */
+    .empty { text-align: center; padding: 60px 20px; }
+
+    .empty-emoji {
+      font-size: 46px;
+      display: block;
+      margin-bottom: 16px;
+      filter: drop-shadow(0 0 18px rgba(217,70,239,0.35));
+      animation: emptyFloat 2.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes emptyFloat {
+      0%   { transform: translateY(0) scale(1); }
+      100% { transform: translateY(-12px) scale(1.05); }
+    }
+
+    .empty h3 { font-family: var(--display); font-size: 15px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-2); margin-bottom: 8px; }
+
+    .empty p { font-size: 13.5px; color: var(--text-3); line-height: 1.75; max-width: 300px; margin: 0 auto; font-weight: 500; }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      padding: 22px 20px;
+      border-top: 1px solid var(--border);
+      font-family: var(--mono);
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--text-3);
+      background: rgba(6,6,10,0.6);
+      backdrop-filter: blur(8px);
+    }
+
+    .footer a { color: var(--cyan); text-decoration: none; transition: color 0.15s; }
+    .footer a:hover { color: var(--magenta); }
+
+    /* ── TOAST ── */
+    .toasts { position: fixed; bottom: 20px; right: 20px; z-index: 999; display: flex; flex-direction: column; gap: 6px; }
+
+    .toast {
+      background: rgba(16,16,26,0.95);
+      border: 1px solid var(--border-md);
+      border-radius: var(--r);
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      animation: toastIn 0.22s ease;
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(14px);
+    }
+
+    .toast.ok   { border-left: 3px solid var(--success); }
+    .toast.err  { border-left: 3px solid var(--danger); }
+    .toast.info { border-left: 3px solid var(--cyan); }
+
+    @keyframes toastIn { from{transform:translateX(100%);opacity:0} to{transform:none;opacity:1} }
+
+    /* ══════════════════════════════════════
+       LOADING SCREEN
+    ══════════════════════════════════════ */
+    #loadScreen {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: radial-gradient(ellipse at 50% 30%, #14101f 0%, #06060a 65%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+
+    #loadScreen.hiding { opacity: 0; visibility: hidden; pointer-events: none; }
+
+    #loadScreen::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(217,70,239,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34,211,238,0.06) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, black 20%, transparent 80%);
+    }
+
+    .load-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .load-icon-wrap {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      animation: loadIconFloat 2.2s ease-in-out infinite;
+    }
+
+    .load-logo-img {
+      width: 92px;
+      height: auto;
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 6px 18px rgba(217,70,239,0.4));
+    }
+
+    @keyframes loadIconFloat {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-14px); }
+    }
+
+    .load-icon-wrap::before {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(217,70,239,0.28) 0%, transparent 70%);
+      animation: iconGlow 2.2s ease-in-out infinite;
+    }
+
+    @keyframes iconGlow {
+      0%,100% { transform: scale(1); opacity: 0.7; }
+      50%      { transform: scale(1.25); opacity: 1; }
+    }
+
+    .load-main-emoji {
+      font-family: var(--display);
+      font-size: 44px;
+      font-weight: 900;
+      position: relative;
+      z-index: 1;
+      background-image: var(--grad-brand);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 8px 22px rgba(217,70,239,0.35));
+    }
+
+    .load-sparks { position: absolute; inset: -10px; pointer-events: none; }
+
+    .spark {
+      position: absolute;
+      font-size: 13px;
+      color: var(--cyan);
+      animation: sparkAnim linear infinite;
+      opacity: 0;
+    }
+    .spark:nth-child(odd) { color: var(--magenta); }
+
+    .spark:nth-child(1){ top:4%;  left:8%;  animation-duration:2.1s; animation-delay:0s;   }
+    .spark:nth-child(2){ top:8%;  right:6%; animation-duration:1.8s; animation-delay:0.4s; }
+    .spark:nth-child(3){ bottom:6%; left:4%; animation-duration:2.4s; animation-delay:0.8s; }
+    .spark:nth-child(4){ bottom:4%; right:8%; animation-duration:1.9s; animation-delay:0.2s; }
+    .spark:nth-child(5){ top:50%; left:-6%; animation-duration:2.2s; animation-delay:1s; }
+    .spark:nth-child(6){ top:50%; right:-6%; animation-duration:2.0s; animation-delay:0.6s; }
+
+    @keyframes sparkAnim {
+      0%  { opacity:0; transform:scale(0.4) rotate(0deg); }
+      30% { opacity:1; transform:scale(1) rotate(90deg); }
+      60% { opacity:0.7; transform:scale(0.85) rotate(180deg); }
+      100%{ opacity:0; transform:scale(0.4) rotate(360deg); }
+    }
+
+    .load-brand {
+      font-family: var(--display);
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      color: transparent;
+      background: linear-gradient(90deg, var(--magenta), var(--purple), var(--cyan), var(--magenta));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: shimmerText 2.2s linear infinite;
+      margin-bottom: 10px;
+    }
+
+    .load-msg {
+      font-family: var(--mono);
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--text-2);
+      height: 22px;
+      transition: opacity 0.25s ease;
+      margin-bottom: 28px;
+      letter-spacing: 0.02em;
+    }
+
+    .load-msg.fade { opacity: 0; }
+
+    .load-progress-wrap { width: 200px; height: 4px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
+
+    .load-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--grad-brand);
+      background-size: 200% 100%;
+      animation: barShimmer 1.2s linear infinite;
+      transition: width 0.1s linear;
+    }
+
+    @keyframes barShimmer { 0%{background-position:100% 0} 100%{background-position:-100% 0} }
+
+    .load-dots { display: flex; gap: 6px; margin-top: 16px; }
+
+    .load-dot-w {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      animation: dotWave 1.2s ease-in-out infinite;
+      opacity: 0.4;
+    }
+
+    .load-dot-w:nth-child(1) { background: var(--magenta); }
+    .load-dot-w:nth-child(2) { background: var(--purple); animation-delay: 0.2s; }
+    .load-dot-w:nth-child(3) { background: var(--cyan); animation-delay: 0.4s; }
+
+    @keyframes dotWave {
+      0%,100% { transform: translateY(0); opacity: 0.4; }
+      50%      { transform: translateY(-8px); opacity: 1; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (prefers-reduced-motion: reduce) {
+      .blob-1,.blob-2,.blob-3 { animation: none; }
+      .bg-canvas::after { animation: none; }
+      .logo-mark { animation: none; }
+      .hero-title .shimmer { animation: none; -webkit-text-fill-color: var(--magenta); }
+      .hero-title .bounce-word { animation: none; }
+      .empty-emoji { animation: none; }
+      .heart-deco { animation: none; display: none; }
+      .load-icon-wrap { animation: none; }
+      .load-icon-wrap::before { animation: none; }
+      .spark { animation: none; opacity: 0.5; }
+      .load-brand { animation: none; -webkit-text-fill-color: var(--magenta); }
+      .load-progress-bar { animation: none; }
+      .load-dot-w { animation: none; opacity: 0.6; }
+    }
+
+    @media (max-width: 600px) {
+      .header { padding: 10px 14px; }
+      .hero { padding: 34px 14px 20px; }
+      .address-wrap { padding: 0 12px 22px; }
+      .address-box { padding: 16px 14px 14px; }
+      .address-text { font-size: 13px; }
+      .address-actions { gap: 6px; }
+      .btn { padding: 7px 11px; font-size: 12.5px; }
+      .domain-select { font-size: 12px; padding: 7px 8px; max-width: 110px; }
+      .inbox-wrap { padding: 0 12px 40px; }
+      .email-card { padding: 12px 13px; }
+      .viewer-header { flex-direction: column; gap: 10px; padding: 14px; }
+      .viewer-actions { width: 100%; justify-content: flex-end; }
+      .custom-input { width: 130px; }
+      .toasts { bottom: 12px; right: 12px; left: 12px; }
+      .features { gap: 6px; }
+      .feature-pill { font-size: 11px; padding: 5px 10px; }
     }
   </style>
 </head>
-<body class="bg-brand-dark text-slate-200 font-sans min-h-screen relative overflow-x-hidden">
+<body>
 
-  <!-- Efek Cahaya Latar Belakang (Glow) -->
-  <div class="glow-bg top-[-100px] left-[-100px]"></div>
-  <div class="glow-bg bottom-[-100px] right-[-100px]" style="background: radial-gradient(circle, rgba(6, 182, 212, 0.06) 0%, transparent 70%);"></div>
+  <!-- Floating tech decorations -->
+  <span class="heart-deco" style="left:5%;bottom:-5%;animation-duration:14s;animation-delay:0s">&lt;/&gt;</span>
+  <span class="heart-deco cyan" style="left:18%;bottom:-5%;animation-duration:18s;animation-delay:3s">◆</span>
+  <span class="heart-deco" style="left:35%;bottom:-5%;animation-duration:12s;animation-delay:1.5s">✦</span>
+  <span class="heart-deco cyan" style="left:52%;bottom:-5%;animation-duration:16s;animation-delay:5s">01</span>
+  <span class="heart-deco" style="left:68%;bottom:-5%;animation-duration:13s;animation-delay:2s">▲</span>
+  <span class="heart-deco cyan" style="left:82%;bottom:-5%;animation-duration:19s;animation-delay:4s">⬡</span>
+  <span class="heart-deco" style="left:92%;bottom:-5%;animation-duration:15s;animation-delay:0.8s">10</span>
 
-  <!-- Top Navigation Bar -->
-  <nav class="border-b border-brand-border bg-brand-dark/80 backdrop-blur-md sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-purple to-brand-cyan flex items-center justify-center shadow-lg shadow-brand-purple/20">
-          <i class="ph ph-envelope-open text-white text-2xl font-bold"></i>
+  <!-- ══ LOADING SCREEN ══ -->
+  <div id="loadScreen" role="status" aria-label="Loading NOXXY">
+    <div class="load-content">
+      <div class="load-icon-wrap">
+        <div class="load-sparks" aria-hidden="true">
+          <span class="spark">⚡</span>
+          <span class="spark">◆</span>
+          <span class="spark">✦</span>
+          <span class="spark">⬡</span>
+          <span class="spark">▲</span>
+          <span class="spark">✧</span>
         </div>
-        <div>
-          <span class="font-display font-bold text-xl tracking-tight text-white">NOXXY</span>
-          <span class="text-[10px] block text-brand-cyan font-mono -mt-1 font-bold">VERSION 1.0.0</span>
-        </div>
+        <img src="logo-mark.png" alt="" class="load-logo-img" aria-hidden="true" />
       </div>
-      
-      <!-- Status Konektivitas -->
-      <div class="flex items-center gap-4 sm:gap-6">
-        <div class="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1.5 rounded-full text-xs text-emerald-400 font-medium">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span class="hidden sm:inline">Server Online (Vercel)</span>
-          <span class="sm:hidden">Vercel</span>
-        </div>
-        <div class="flex items-center gap-2 bg-brand-purple/10 border border-brand-purple/20 px-3 py-1.5 rounded-full text-xs text-brand-purple font-medium">
-          <i class="ph ph-shield-check text-base"></i>
-          <span class="font-mono text-slate-300 hidden sm:inline">CF Worker Active</span>
-          <span class="font-mono text-slate-300 sm:hidden">Active</span>
-        </div>
+      <div class="load-brand">NOXXY</div>
+      <div class="load-msg" id="loadMsg">Initializing secure inbox…</div>
+      <div class="load-progress-wrap">
+        <div class="load-progress-bar" id="loadBar"></div>
       </div>
-    </div>
-  </nav>
-
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
-    
-    <!-- Hero / Informasi Atas -->
-    <div class="text-center max-w-2xl mx-auto mb-10">
-      <span class="text-xs uppercase tracking-widest text-brand-purple font-semibold bg-brand-purple/10 border border-brand-purple/20 px-3 py-1 rounded-full inline-block mb-3">Premium Tempmail</span>
-      <h1 class="text-3xl sm:text-4xl font-display font-bold text-white mb-3">Sembunyikan Email Asli Anda</h1>
-      <p class="text-sm text-slate-400">Gunakan kotak surat sementara premium dari domain <span class="text-brand-cyan font-mono font-semibold">noxxyrorr.biz.id</span> untuk menghindari spam, iklan, dan bot keamanan.</p>
-    </div>
-
-    <!-- Card Utama Generator Email -->
-    <div class="bg-brand-card border border-brand-border rounded-2xl p-6 sm:p-8 max-w-3xl mx-auto shadow-2xl mb-12 relative overflow-hidden">
-      <!-- Glow di dalam card -->
-      <div class="absolute -right-20 -top-20 w-48 h-48 bg-brand-cyan/10 rounded-full blur-3xl"></div>
-      
-      <div class="relative z-10">
-        <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2">Alamat Email Sementara Anda</label>
-        
-        <!-- Input & Tombol Aksi Utama -->
-        <div class="flex flex-col sm:flex-row gap-3 items-stretch">
-          <div class="relative flex-grow flex items-center bg-brand-dark border border-brand-border rounded-xl px-4 h-14">
-            <i class="ph ph-at text-slate-400 text-xl mr-3"></i>
-            <input type="text" id="email-address" value="generating..." readonly class="bg-transparent border-0 text-white font-mono text-base sm:text-lg focus:ring-0 w-full outline-none font-medium select-all">
-            <span class="text-brand-cyan font-semibold text-xs bg-brand-cyan/10 border border-brand-cyan/20 px-2.5 py-1 rounded ml-2 font-mono" id="domain-label">@noxxyrorr.biz.id</span>
-          </div>
-          
-          <div class="flex gap-2 sm:gap-3">
-            <!-- Tombol Copy -->
-            <button onclick="copyToClipboard()" class="flex-1 sm:flex-none px-5 h-14 bg-gradient-to-tr from-brand-purple to-purple-600 hover:from-brand-purple hover:to-purple-500 text-white rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg shadow-brand-purple/20 transition-all duration-300 transform active:scale-95" title="Salin Email">
-              <i class="ph ph-copy text-xl"></i>
-              <span>Salin</span>
-            </button>
-            <!-- Tombol Email Baru -->
-            <button onclick="generateNewEmail()" class="flex-1 sm:flex-none px-5 h-14 bg-slate-800 hover:bg-slate-700 text-white border border-brand-border/40 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all duration-300 transform active:scale-95" title="Ganti Email Baru">
-              <i class="ph ph-arrows-clockwise text-xl" id="refresh-icon"></i>
-              <span>Baru</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Custom Alias & Expiration Timer -->
-        <div class="mt-5 pt-5 border-t border-brand-border/40 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-4">
-          <!-- Custom Username Form -->
-          <div class="flex items-center gap-2 flex-grow max-w-md">
-            <div class="relative flex-grow">
-              <input type="text" id="custom-alias" placeholder="Buat nama email sendiri..." class="w-full h-10 pl-3 pr-24 bg-brand-dark/50 border border-brand-border/60 rounded-lg text-sm text-white focus:outline-none focus:border-brand-purple/50 font-mono">
-              <button onclick="applyCustomAlias()" class="absolute right-1.5 top-1.5 bottom-1.5 px-3 bg-brand-purple/20 hover:bg-brand-purple/30 text-brand-purple hover:text-white rounded-md text-xs font-semibold transition-all">Custom</button>
-            </div>
-          </div>
-
-          <!-- Countdown progress bar -->
-          <div class="flex items-center gap-3 self-end sm:self-auto">
-            <div class="text-right">
-              <span class="text-[10px] uppercase font-bold text-slate-500 block">Auto Refresh</span>
-              <span class="text-xs font-mono font-semibold text-brand-cyan" id="countdown-timer">Update dalam 10s</span>
-            </div>
-            <div class="w-10 h-10 rounded-lg bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center">
-              <i class="ph ph-clock text-brand-cyan text-xl"></i>
-            </div>
-          </div>
-        </div>
+      <div class="load-dots" aria-hidden="true">
+        <div class="load-dot-w"></div>
+        <div class="load-dot-w"></div>
+        <div class="load-dot-w"></div>
       </div>
-    </div>
-
-    <!-- Bagian Kotak Masuk (Inbox Grid) -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-      
-      <!-- Sisi Kiri: Daftar Email Masuk (List) -->
-      <div class="lg:col-span-5 bg-brand-card border border-brand-border rounded-2xl p-5 shadow-xl min-h-[480px]">
-        <div class="flex justify-between items-center mb-4 pb-4 border-b border-brand-border/40">
-          <div class="flex items-center gap-2">
-            <i class="ph ph-tray text-xl text-brand-purple"></i>
-            <h2 class="font-display font-bold text-lg text-white">Kotak Masuk</h2>
-            <span class="bg-brand-purple/20 text-brand-purple text-xs font-bold px-2 py-0.5 rounded-full animate-pulse" id="email-count-badge">0</span>
-          </div>
-          <button onclick="fetchEmails()" class="text-xs text-slate-400 hover:text-white flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-slate-800 transition-all border border-transparent hover:border-brand-border/40">
-            <i class="ph ph-arrows-clockwise" id="inbox-refresh-spin"></i>
-            Segarkan
-          </button>
-        </div>
-
-        <!-- Wadah List Email -->
-        <div class="space-y-3 max-h-[420px] overflow-y-auto pr-1" id="inbox-container">
-          <!-- State Kosong (Default) -->
-          <div id="empty-state" class="flex flex-col items-center justify-center py-16 text-center">
-            <div class="w-16 h-16 rounded-full bg-brand-purple/5 border border-brand-purple/10 flex items-center justify-center mb-4">
-              <i class="ph ph-envelope-simple text-brand-purple text-3xl animate-bounce"></i>
-            </div>
-            <h3 class="font-semibold text-white mb-1 text-sm">Masih sepi nih...</h3>
-            <p class="text-xs text-slate-400 max-w-xs">Kirim email ke alamat di atas, lalu email otomatis akan langsung muncul di sini secara real-time!</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sisi Ranan: Panel Detail Pembaca Email -->
-      <div class="lg:col-span-7 bg-brand-card border border-brand-border rounded-2xl p-6 shadow-xl min-h-[480px] flex flex-col">
-        <!-- Header Detail -->
-        <div class="pb-5 border-b border-brand-border/40 mb-5 flex flex-col sm:flex-row justify-between items-start gap-4">
-          <div class="min-w-0 flex-1">
-            <div class="flex items-center gap-2 text-xs uppercase font-bold text-slate-500 mb-2">
-              <i class="ph ph-envelope-open"></i>
-              <span>Email Reader</span>
-            </div>
-            <h2 class="text-xl font-display font-bold text-white mb-1 truncate" id="reader-subject">Silakan pilih email</h2>
-            <p class="text-xs text-slate-400" id="reader-metadata">Klik salah satu email dari daftar di sebelah kiri untuk membacanya secara detail di sini.</p>
-          </div>
-          
-          <!-- View Tabs (HTML / Plain) -->
-          <div class="flex bg-brand-dark/80 p-1 rounded-lg border border-brand-border/30 self-end sm:self-auto shrink-0">
-            <button onclick="switchViewTab('html')" id="tab-html" class="px-3 py-1 text-xs font-semibold rounded bg-brand-purple text-white transition-all">HTML</button>
-            <button onclick="switchViewTab('text')" id="tab-text" class="px-3 py-1 text-xs font-semibold rounded text-slate-400 hover:text-white transition-all">Plain Text</button>
-          </div>
-        </div>
-
-        <!-- Wadah Body Email -->
-        <div class="flex-grow flex flex-col justify-center rounded-xl bg-brand-dark/50 border border-brand-border/30 p-2 min-h-[300px]" id="reader-body">
-          <div id="reader-placeholder" class="text-center text-slate-500 py-10">
-            <i class="ph ph-sidebar text-4xl mb-3 text-slate-600 block"></i>
-            <span class="text-xs">Tidak ada email yang sedang dibuka</span>
-          </div>
-          
-          <iframe id="reader-iframe" class="hidden" src="about:blank"></iframe>
-          <div id="reader-text-container" class="hidden text-sm text-slate-300 font-mono p-4 whitespace-pre-wrap break-words overflow-y-auto max-h-[400px]"></div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Real-Time Log Monitoring Section -->
-    <div class="mt-12 bg-brand-card border border-brand-border rounded-2xl p-5 shadow-xl">
-      <div class="flex justify-between items-center mb-4">
-        <div class="flex items-center gap-2">
-          <div class="w-3 h-3 rounded-full bg-emerald-400 animate-ping"></div>
-          <h3 class="font-display font-bold text-sm text-slate-300">Noxxy Mail Server - Live Activity Stream</h3>
-        </div>
-        <span class="text-[10px] font-mono text-brand-purple">Active Pipeline Socket</span>
-      </div>
-      <div class="bg-brand-dark border border-brand-border/40 rounded-xl p-4 font-mono text-xs text-brand-cyan/85 max-h-48 overflow-y-auto space-y-1.5" id="system-logs">
-        <p class="text-slate-500">[10:00:01] System initializing complete. Ready for new incoming routing signals.</p>
-        <p class="text-slate-500">[10:00:02] Connected successfully to verification backend inside vercel-dns.</p>
-        <p class="text-brand-purple/90 font-semibold">[10:00:03] Listening for incoming payloads on 'noxxyrorr.biz.id'</p>
-      </div>
-    </div>
-
-  </main>
-
-  <!-- Footnotes -->
-  <footer class="border-t border-brand-border/30 mt-16 py-6 text-center text-xs text-slate-500 relative z-10">
-    <div class="max-w-7xl mx-auto px-4">
-      <p>© 2026 NOXXYRORR. All rights reserved. Powered by Vercel &amp; Cloudflare Workers.</p>
-    </div>
-  </footer>
-
-  <!-- Toast Notification Container -->
-  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-brand-card border border-brand-purple/40 text-white px-5 py-3.5 rounded-xl shadow-2xl flex items-center gap-3">
-    <div class="w-8 h-8 rounded-lg bg-brand-purple/20 flex items-center justify-center">
-      <i class="ph ph-check-circle text-brand-purple text-xl"></i>
-    </div>
-    <div>
-      <h5 class="text-xs font-bold text-white uppercase">Sistem Notifikasi</h5>
-      <p class="text-xs text-slate-300" id="toast-message">Berhasil disalin!</p>
     </div>
   </div>
 
-  <script>
-    let currentLocalPart = "";
-    const domain = "noxxyrorr.biz.id";
-    let countdownVal = 10;
-    let emails = [];
-    let activeEmailId = null;
-    let selectedTab = 'html';
-    let activeEmailData = null;
-    
-    // Data Email Tiruan (Mock) agar preview terlihat langsung bekerja dengan elegan
-    const mockEmails = [
-      {
-        id: "mock-1",
-        from: "faymantap@gmail.com",
-        subject: "🎉 Rebranding NOXXY Sukses!",
-        date: "Baru saja",
-        snippet: "Selamat! Domain baru noxxyrorr.biz.id sudah online. Email Worker sukses meneruskan pesan ini...",
-        html: `
-          <div style="font-family: sans-serif; color: #1e293b; background: white; padding: 24px; border-radius: 12px; line-height: 1.6;">
-            <h2 style="margin-top: 0; color: #a855f7; font-size: 20px;">🎉 Selamat, Rebranding Sukses!</h2>
-            <p>Halo Developer,</p>
-            <p>Ini adalah email konfirmasi uji coba pengiriman yang sukses ditangkap oleh <strong>Cloudflare Worker</strong> untuk domain baru Anda <code>noxxyrorr.biz.id</code>.</p>
-            <table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px;">
-              <tr style="background: #f8fafc;">
-                <td style="padding: 8px; border: 1px solid #e2e8f0; font-weight: bold; color: #a855f7;">Status DNS</td>
-                <td style="padding: 8px; border: 1px solid #e2e8f0; color: #10b981; font-weight: bold;">ACTIVE (CNAME Verified)</td>
-              </tr>
-              <tr>
-                <td style="padding: 8px; border: 1px solid #e2e8f0; font-weight: bold; color: #a855f7;">Keamanan SSL</td>
-                <td style="padding: 8px; border: 1px solid #e2e8f0; color: #10b981; font-weight: bold;">Valid HTTPS Certificate</td>
-              </tr>
-              <tr style="background: #f8fafc;">
-                <td style="padding: 8px; border: 1px solid #e2e8f0; font-weight: bold; color: #a855f7;">Latency Route</td>
-                <td style="padding: 8px; border: 1px solid #e2e8f0; color: #3b82f6; font-weight: bold;">&lt; 95ms (Edge Cloudflare)</td>
-              </tr>
-            </table>
-            <p style="margin-bottom: 0;">Sistem mailbox Anda sekarang siap melayani ribuan email masuk tanpa hambatan. Selamat atas selesainya setup!</p>
-          </div>
-        `,
-        text: "🎉 Selamat, Rebranding Sukses!\n\nHalo Developer,\n\nIni adalah email konfirmasi uji coba pengiriman yang sukses ditangkap oleh Cloudflare Worker untuk domain baru Anda noxxyrorr.biz.id."
-      },
-      {
-        id: "mock-2",
-        from: "security@cloudflare.com",
-        subject: "WAF Custom Rules Triggered Successfully",
-        date: "5 menit yang lalu",
-        snippet: "Aturan WAF baru telah mem-bypass lalu lintas Worker Noxxyrorr...",
-        html: `
-          <div style="font-family: monospace; color: #0f172a; background: #f8fafc; padding: 20px; border-radius: 8px; border-left: 4px solid #f97316;">
-            <p style="font-weight: bold; margin: 0 0 10px 0; color: #ea580c;">[SECURITY NOTIFICATION]</p>
-            <p>User-Agent <strong>Noxxyrorr-Mail-Worker</strong> bypass rule successfully executed for incoming payload.</p>
-            <p>IP Source: Cloudflare Worker Edge Network</p>
-            <p>Target Node: https://noxxyrorr.biz.id/api/inbound-email</p>
-          </div>
-        `,
-        text: "[SECURITY NOTIFICATION]\n\nUser-Agent Noxxyrorr-Mail-Worker bypass rule successfully executed for incoming payload.\n\nIP Source: Cloudflare Worker Edge Network\nTarget Node: https://noxxyrorr.biz.id/api/inbound-email"
-      }
-    ];
+  <!-- BACKGROUND -->
+  <div class="bg-canvas" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
 
-    function generateRandomString(length) {
-      const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
-      let result = '';
-      for (let i = 0; i < length; i++) {
-        result += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-      return result;
-    }
-
-    function generateNewEmail() {
-      const icon = document.getElementById("refresh-icon");
-      icon.classList.add("animate-spin");
-      
-      setTimeout(() => {
-        currentLocalPart = generateRandomString(9);
-        document.getElementById("email-address").value = currentLocalPart;
-        
-        addSystemLog(`Membangun rute kotak surat baru: ${currentLocalPart}@${domain}`);
-        icon.classList.remove("animate-spin");
-        showToast("Alamat email baru dibuat!");
-        
-        fetchEmails(); // update inbox list
-      }, 600);
-    }
-
-    function applyCustomAlias() {
-      const input = document.getElementById("custom-alias").value.trim().toLowerCase();
-      if (!input) {
-        showToast("Masukkan nama kustom terlebih dahulu!");
-        return;
-      }
-      const sanitized = input.replace(/[^a-z0-9]/g, '');
-      currentLocalPart = sanitized;
-      document.getElementById("email-address").value = sanitized;
-      
-      addSystemLog(`Custom alias diterapkan: ${sanitized}@${domain}`);
-      showToast("Email kustom aktif!");
-      document.getElementById("custom-alias").value = "";
-      fetchEmails();
-    }
-
-    function copyToClipboard() {
-      const fullAddress = `${currentLocalPart}@${domain}`;
-      const tempInput = document.createElement("input");
-      tempInput.value = fullAddress;
-      document.body.appendChild(tempInput);
-      tempInput.select();
-      document.execCommand("copy");
-      document.body.removeChild(tempInput);
-
-      showToast("Alamat email disalin ke clipboard!");
-      addSystemLog(`Menyalin alamat email ke clipboard: ${fullAddress}`);
-    }
-
-    function showToast(message) {
-      const toast = document.getElementById("toast");
-      document.getElementById("toast-message").innerText = message;
-      
-      toast.classList.remove("translate-y-20", "opacity-0");
-      toast.classList.add("translate-y-0", "opacity-100");
-      
-      setTimeout(() => {
-        toast.classList.remove("translate-y-0", "opacity-100");
-        toast.classList.add("translate-y-20", "opacity-0");
-      }, 2500);
-    }
-
-    function addSystemLog(message) {
-      const logger = document.getElementById("system-logs");
-      const timeStr = new Date().toLocaleTimeString();
-      const p = document.createElement("p");
-      p.className = "text-slate-400";
-      p.innerHTML = `<span class="text-slate-600">[${timeStr}]</span> ${message}`;
-      logger.appendChild(p);
-      logger.scrollTop = logger.scrollHeight;
-    }
-
-    async function fetchEmails() {
-      const spinner = document.getElementById("inbox-refresh-spin");
-      if (spinner) spinner.classList.add("animate-spin");
-      
-      addSystemLog(`Melakukan pengecekan email masuk untuk: ${currentLocalPart}@${domain}...`);
-
-      try {
-        const fullEmail = `${currentLocalPart}@${domain}`;
-        const response = await fetch(`/api/emails?address=${encodeURIComponent(fullEmail)}`);
-        if (response.ok) {
-          const data = await response.json();
-          if (data && Array.isArray(data)) {
-            emails = data;
-          } else {
-            emails = mockEmails; // fallback jika format tidak sesuai
-          }
-        } else {
-          // Fallback ke mock data jika API endpoint belum aktif (lokal/preview)
-          emails = mockEmails;
-        }
-      } catch (err) {
-        // Fallback jika fetch error
-        emails = mockEmails;
-      }
-
-      setTimeout(() => {
-        if (spinner) spinner.classList.remove("animate-spin");
-        renderInbox();
-      }, 600);
-    }
-
-    function renderInbox() {
-      const container = document.getElementById("inbox-container");
-      const badge = document.getElementById("email-count-badge");
-      
-      container.innerHTML = "";
-      badge.innerText = emails.length;
-
-      if (emails.length === 0) {
-        container.innerHTML = `
-          <div id="empty-state" class="flex flex-col items-center justify-center py-16 text-center">
-            <div class="w-16 h-16 rounded-full bg-brand-purple/5 border border-brand-purple/10 flex items-center justify-center mb-4">
-              <i class="ph ph-envelope-simple text-brand-purple text-3xl animate-bounce"></i>
-            </div>
-            <h3 class="font-semibold text-white mb-1 text-sm">Masih sepi nih...</h3>
-            <p class="text-xs text-slate-400 max-w-xs">Kirim email ke alamat di atas, lalu email otomatis akan langsung muncul di sini secara real-time!</p>
-          </div>
-        `;
-        return;
-      }
-
-      emails.forEach((email) => {
-        const item = document.createElement("div");
-        const isActive = activeEmailId === email.id ? "border-brand-purple bg-brand-dark/80" : "border-brand-border/40 hover:border-brand-purple/40 bg-brand-dark/40";
-        item.className = `border ${isActive} p-4 rounded-xl cursor-pointer transition-all hover:bg-brand-dark/60 relative overflow-hidden group`;
-        item.onclick = () => openEmail(email);
-        item.innerHTML = `
-          <div class="flex justify-between items-start gap-2 mb-1">
-            <span class="text-xs font-bold text-white font-mono group-hover:text-brand-purple transition-all truncate max-w-[180px]">${email.from}</span>
-            <span class="text-[10px] text-slate-500 font-medium shrink-0">${email.date}</span>
-          </div>
-          <h4 class="text-xs font-semibold text-slate-300 mb-1 truncate">${email.subject}</h4>
-          <p class="text-[11px] text-slate-500 line-clamp-1">${email.snippet || ''}</p>
-        `;
-        container.appendChild(item);
-      });
-
-      addSystemLog(`Berhasil sinkronisasi inbox: Ditemukan ${emails.length} pesan.`);
-    }
-
-    function openEmail(email) {
-      activeEmailId = email.id;
-      activeEmailData = email;
-      
-      // Update visual aktif pada daftar email
-      renderInbox();
-      
-      addSystemLog(`Membuka surat masuk dari: ${email.from}`);
-      
-      document.getElementById("reader-subject").innerText = email.subject;
-      document.getElementById("reader-metadata").innerHTML = `
-        <div class="flex flex-col gap-1 mt-2 text-xs">
-          <div><span class="text-slate-500 font-medium">Dari:</span> <span class="text-brand-cyan font-mono">${email.from}</span></div>
-          <div><span class="text-slate-500 font-medium">Untuk:</span> <span class="text-slate-300 font-mono">${currentLocalPart}@${domain}</span></div>
+  <!-- HEADER -->
+  <header class="header">
+    <a class="logo" href="/" aria-label="NOXXY — Temporary Email Home">
+      <img src="logo-mark.png" alt="NOXXY TECH" class="logo-img" />
+    </a>
+    <div class="header-right">
+      <div class="live-badge state-connecting" id="liveBadge" role="status" aria-live="polite">
+        <div class="live-icon">
+          <span class="live-ring"></span>
+          <span class="live-dot-new" id="liveDot"></span>
         </div>
-      `;
-      
-      document.getElementById("reader-placeholder").classList.add("hidden");
-      updateReaderBody();
+        <span id="liveText">Connecting</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">BUILD <b>·</b> AUTOMATE <b>·</b> GROW</div>
+    <h1 class="hero-title">
+      Email <span class="shimmer">Sekali Pakai</span><br>
+      yang <span class="bounce-word">Super Cepat</span>
+    </h1>
+    <p class="hero-sub">Lindungi inbox aslimu dari spam. Email langsung siap, tanpa daftar, tanpa ribet.</p>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="features" aria-hidden="true">
+    <div class="feature-pill">&lt;/&gt; Tanpa daftar</div>
+    <div class="feature-pill">⚡ Instan</div>
+    <div class="feature-pill">🔒 Privasi terjaga</div>
+    <div class="feature-pill">✏ Nama sendiri</div>
+    <div class="feature-pill">☁ 100% gratis</div>
+  </div>
+
+  <!-- ADDRESS -->
+  <div class="address-wrap">
+    <div class="address-box">
+      <div class="address-label">▸ Alamat email sementaramu</div>
+      <div class="address-display">
+        <span class="address-text" id="addressText" aria-label="Current email address">Generating...</span>
+      </div>
+      <div class="address-actions">
+        <button class="btn btn-primary" id="copyBtn" aria-label="Copy email address to clipboard">
+          <span class="btn-emoji">⧉</span> Salin
+        </button>
+        <button class="btn btn-ghost" id="genBtn" aria-label="Generate new email address">
+          <span class="btn-emoji">↻</span> Baru
+        </button>
+        <select class="domain-select" id="domainSelect" aria-label="Select email domain"></select>
+        <button class="btn btn-fun" id="customToggle">
+          <span class="btn-emoji">✎</span> Custom
+        </button>
+      </div>
+
+      <div class="custom-form" id="customForm">
+        <input type="text" class="custom-input" id="customUser" placeholder="username" maxlength="30" aria-label="Custom username" autocomplete="off" />
+        <span class="at-sym">@</span>
+        <select class="domain-select" id="customDomain" aria-label="Select domain for custom address"></select>
+        <button class="btn btn-primary" id="customSave" style="padding:8px 14px">Buat</button>
+        <button class="btn btn-ghost" id="customCancel" style="padding:8px 10px">Batal</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- INBOX -->
+  <div class="inbox-wrap">
+    <div class="inbox-container">
+      <div class="inbox-bar">
+        <span class="inbox-count" id="inboxCount" aria-live="polite">▸ INBOX</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <button class="btn btn-ghost" id="refreshBtn" style="padding:5px 10px;font-size:12px" aria-label="Refresh inbox">
+            <span id="refreshSpinner">↻</span> Refresh
+          </button>
+        </div>
+      </div>
+
+      <!-- Email Viewer -->
+      <div class="email-viewer" id="emailViewer" role="region" aria-label="Email viewer">
+        <div class="viewer-header">
+          <div class="viewer-meta">
+            <div class="viewer-subject" id="vSubject"></div>
+            <div class="viewer-from" id="vFrom"></div>
+            <div class="viewer-date" id="vDate"></div>
+          </div>
+          <div class="viewer-actions">
+            <button class="btn btn-danger" id="deleteBtn" style="padding:6px 10px;font-size:12px" aria-label="Delete this email">
+              🗑 Hapus
+            </button>
+            <button class="btn btn-ghost" id="closeViewer" style="padding:6px 10px;font-size:12px">✕ Tutup</button>
+          </div>
+        </div>
+        <div class="viewer-tabs">
+          <button class="vtab active" data-tab="html">HTML</button>
+          <button class="vtab" data-tab="text">Text</button>
+        </div>
+        <div class="viewer-body">
+          <iframe id="emailFrame" sandbox="allow-same-origin" title="Email content"></iframe>
+          <div class="viewer-text" id="viewerText"></div>
+        </div>
+      </div>
+
+      <!-- Email list -->
+      <div id="emailList" role="list" aria-label="Inbox messages">
+        <div class="empty" id="emptyState">
+          <span class="empty-emoji" aria-hidden="true">◇</span>
+          <h3>Masih sepi nih</h3>
+          <p>Kirim email ke alamat di atas, lalu tekan tombol Refresh untuk melihatnya di sini.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>&copy; 2026 NOXXY TECH. All Rights Reserved.</div>
+    <div style="margin-top:4px;font-size:11px">Developed &amp; Maintained by <a href="https://t.me/noxxytech" target="_blank" rel="noopener noreferrer">Noxxy</a></div>
+  </footer>
+
+  <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+
+<script>
+"use strict";
+const $ = id => document.getElementById(id);
+const store = {
+  get: k => { try { return JSON.parse(localStorage.getItem("ng_" + k)); } catch { return null; } },
+  set: (k, v) => localStorage.setItem("ng_" + k, JSON.stringify(v)),
+  remove: k => localStorage.removeItem("ng_" + k)
+};
+
+const state = { address: null, inbox: null, sessionId: null, emails: [], selectedId: null, domains: [] };
+const list = $("emailList");
+
+function toast(msg, type = "info", ms = 3000) {
+  const el = document.createElement("div");
+  el.className = "toast " + type;
+  el.textContent = msg;
+  $("toasts").appendChild(el);
+  setTimeout(() => { el.style.animation = "toastIn 0.22s ease reverse"; setTimeout(() => el.remove(), 220); }, ms);
+}
+
+function setStatus(s) {
+  const badge = $("liveBadge"), txt = $("liveText");
+  badge.className = "live-badge" + (s === "connected" ? " state-on" : s === "connecting" ? " state-connecting" : " state-offline");
+  txt.textContent = s === "connected" ? "Ready" : s === "connecting" ? "Loading..." : "Offline";
+}
+
+function esc(s) {
+  return String(s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+function relTime(d) {
+  const ms = Date.now() - new Date(d);
+  if (ms < 60000) return "barusan";
+  if (ms < 3600000) return Math.floor(ms/60000) + "m lalu";
+  if (ms < 86400000) return new Date(d).toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"});
+  return new Date(d).toLocaleDateString([], {month:"short", day:"numeric"});
+}
+
+function fullDate(d) {
+  return new Date(d).toLocaleString([], {dateStyle:"medium", timeStyle:"short"});
+}
+
+async function api(path, opts = {}) {
+  const r = await fetch(path, { headers: { "Content-Type": "application/json" }, ...opts });
+  return r.json();
+}
+
+async function loadDomains() {
+  try {
+    const r = await api("/api/domains");
+    state.domains = r.domains || ["nageetha.web.id"];
+  } catch { state.domains = ["nageetha.web.id"]; }
+
+  const currentHost = window.location.hostname;
+  const matchedDomain = state.domains.find(d => currentHost === d || currentHost.endsWith("." + d));
+  state.preferredDomain = matchedDomain || state.domains[0];
+
+  [$("domainSelect"), $("customDomain")].forEach(sel => {
+    sel.innerHTML = state.domains.map(d =>
+      `<option value="${d}"${d === state.preferredDomain ? " selected" : ""}>${d}</option>`
+    ).join("");
+  });
+}
+
+async function createInbox(username, domain) {
+  const sessionId = state.sessionId || (state.sessionId = store.get("sid") || crypto.randomUUID());
+  store.set("sid", sessionId);
+  $("addressText").textContent = "Generating...";
+  setStatus("connecting");
+  try {
+    const d = domain || $("domainSelect").value;
+    const r = await api("/api/inbox", { method: "POST", body: JSON.stringify({ username, domain: d, sessionId }) });
+    if (!r.success) { toast(r.error || "Gagal membuat inbox", "err"); return; }
+    state.address = r.inbox.address;
+    state.inbox = r.inbox;
+    state.emails = r.emails || [];
+    store.set("addr", r.inbox.address);
+    $("addressText").textContent = state.address;
+    closeViewer();
+    renderList();
+    setStatus("connected");
+    toast("Inbox siap digunakan", "ok");
+  } catch { toast("Network error", "err"); setStatus("offline"); }
+}
+
+async function loadExisting(address) {
+  try {
+    const r = await api(`/api/inbox?address=${encodeURIComponent(address)}`);
+    if (r.success) {
+      state.address = r.inbox.address;
+      state.inbox = r.inbox;
+      state.emails = r.emails || [];
+      $("addressText").textContent = state.address;
+      [$("domainSelect")].forEach(s => { if (r.inbox.domain) s.value = r.inbox.domain; });
+      renderList();
+      setStatus("connected");
+      return true;
+    }
+  } catch {}
+  return false;
+}
+
+function renderList() {
+  const empty = $("emptyState");
+  $("inboxCount").textContent = `▸ INBOX${state.emails.length ? " (" + state.emails.length + ")" : ""}`;
+
+  if (!state.emails.length) {
+    list.innerHTML = "";
+    list.appendChild(empty);
+    empty.style.display = "block";
+    return;
+  }
+  empty.style.display = "none";
+
+  const existing = new Set(Array.from(list.querySelectorAll(".email-card")).map(el => el.dataset.id));
+
+  state.emails.forEach((email) => {
+    const id = String(email._id);
+    let card = list.querySelector(`.email-card[data-id="${id}"]`);
+    const isActive = state.selectedId === id;
+    const isUnread = !email.read;
+    const isSpam = (email.spamScore || 0) >= 50;
+    const fromName = email.from?.name || email.from?.address || "Unknown";
+    const preview = (email.text || "").replace(/\s+/g, " ").trim().slice(0, 80);
+
+    if (!card) {
+      card = document.createElement("div");
+      card.className = "email-card";
+      card.dataset.id = id;
+      card.setAttribute("role", "listitem");
+      card.addEventListener("click", () => selectEmail(id));
     }
 
-    function updateReaderBody() {
-      if (!activeEmailData) return;
+    card.className = `email-card${isActive ? " active" : ""}${isUnread ? " unread" : ""}`;
+    card.innerHTML = `
+      <div class="card-top">
+        <span class="card-sender">${esc(fromName)}${isSpam ? '<span class="spam-tag">SPAM</span>' : ""}</span>
+        <span class="card-time">${relTime(email.receivedAt)}</span>
+      </div>
+      <div class="card-subject">${esc(email.subject || "(Tidak ada subjek)")}</div>
+      <div class="card-preview">${esc(preview || "Tidak ada preview")}</div>
+    `;
 
-      const iframe = document.getElementById("reader-iframe");
-      const textContainer = document.getElementById("reader-text-container");
-
-      if (selectedTab === 'html') {
-        iframe.classList.remove("hidden");
-        textContainer.classList.add("hidden");
-        
-        const doc = iframe.contentDocument || iframe.contentWindow.document;
-        doc.open();
-        doc.write(activeEmailData.html);
-        doc.close();
-      } else {
-        iframe.classList.add("hidden");
-        textContainer.classList.remove("hidden");
-        textContainer.innerText = activeEmailData.text || activeEmailData.snippet || "No text body available.";
-      }
+    if (!existing.has(id)) {
+      const first = list.querySelector(".email-card");
+      if (first) list.insertBefore(card, first);
+      else list.appendChild(card);
     }
+  });
+}
 
-    function switchViewTab(tab) {
-      selectedTab = tab;
-      const tabHtmlBtn = document.getElementById("tab-html");
-      const tabTextBtn = document.getElementById("tab-text");
+async function selectEmail(id) {
+  state.selectedId = id;
+  list.querySelectorAll(".email-card").forEach(c => {
+    c.classList.toggle("active", c.dataset.id === id);
+    if (c.dataset.id === id) c.classList.remove("unread");
+  });
+  const local = state.emails.find(e => String(e._id) === id);
+  if (local) local.read = true;
+  try {
+    const r = await api(`/api/emails/${id}`);
+    if (!r.success) return;
+    openViewer(r.email);
+  } catch { toast("Gagal memuat email", "err"); }
+}
 
-      if (tab === 'html') {
-        tabHtmlBtn.className = "px-3 py-1 text-xs font-semibold rounded bg-brand-purple text-white transition-all";
-        tabTextBtn.className = "px-3 py-1 text-xs font-semibold rounded text-slate-400 hover:text-white transition-all";
-      } else {
-        tabHtmlBtn.className = "px-3 py-1 text-xs font-semibold rounded text-slate-400 hover:text-white transition-all";
-        tabTextBtn.className = "px-3 py-1 text-xs font-semibold rounded bg-brand-purple text-white transition-all";
-      }
-      updateReaderBody();
+function openViewer(email) {
+  const fromName = email.from?.name || email.from?.address || "";
+  const fromAddr = email.from?.address || "";
+  $("vSubject").textContent = email.subject || "(Tidak ada subjek)";
+  $("vFrom").textContent = `${fromName} <${fromAddr}>`;
+  $("vDate").textContent = fullDate(email.receivedAt);
+
+  const frame = $("emailFrame");
+  if (email.html) {
+    const blob = new Blob([email.html], { type: "text/html" });
+    frame.src = URL.createObjectURL(blob);
+    frame.style.display = "block";
+  } else {
+    frame.style.display = "none";
+  }
+  $("viewerText").textContent = email.text || "(Tidak ada konten teks)";
+
+  setViewerTab("html");
+  const viewer = $("emailViewer");
+  viewer.classList.add("open");
+  viewer.scrollIntoView({ behavior: "smooth", block: "start" });
+  state.selectedEmail = email;
+}
+
+function closeViewer() {
+  $("emailViewer").classList.remove("open");
+  state.selectedId = null;
+  state.selectedEmail = null;
+  list.querySelectorAll(".email-card").forEach(c => c.classList.remove("active"));
+}
+
+function setViewerTab(tab) {
+  document.querySelectorAll(".vtab").forEach(t => t.classList.toggle("active", t.dataset.tab === tab));
+  $("emailFrame").style.display = tab === "html" ? "block" : "none";
+  $("viewerText").style.display = tab === "text" ? "block" : "none";
+}
+
+async function deleteSelected() {
+  if (!state.selectedId) return;
+  const id = state.selectedId;
+  try {
+    const r = await api(`/api/emails/${id}`, { method: "DELETE" });
+    if (r.success) {
+      state.emails = state.emails.filter(e => String(e._id) !== id);
+      closeViewer();
+      renderList();
+      toast("Email dihapus", "ok");
     }
+  } catch { toast("Gagal menghapus", "err"); }
+}
 
-    // Countdown Timer otomatis penyegaran (Auto Polling)
-    setInterval(() => {
-      countdownVal--;
-      if (countdownVal < 0) {
-        countdownVal = 10;
-        fetchEmails();
-      }
-      const timerEl = document.getElementById("countdown-timer");
-      if (timerEl) {
-        timerEl.innerText = `Update dalam ${countdownVal}s`;
-      }
-    }, 1000);
+$("copyBtn").addEventListener("click", () => {
+  if (!state.address) return;
+  navigator.clipboard.writeText(state.address)
+    .then(() => toast("Berhasil disalin", "ok"))
+    .catch(() => toast("Gagal menyalin", "err"));
+});
 
-    // Jalankan inisialisasi pada saat memuat halaman pertama kali
-    window.onload = function() {
-      generateNewEmail();
-    }
-  </script>
+$("genBtn").addEventListener("click", () => createInbox(null, $("domainSelect").value));
+
+async function doRefresh(manual = false) {
+  if (!state.address) return;
+  await loadExisting(state.address);
+  if (manual) toast("Diperbarui", "info");
+}
+
+$("refreshBtn").addEventListener("click", () => doRefresh(true));
+$("customToggle").addEventListener("click", () => { $("customForm").classList.toggle("open"); });
+$("customCancel").addEventListener("click", () => $("customForm").classList.remove("open"));
+
+$("customSave").addEventListener("click", () => {
+  const u = $("customUser").value.trim().toLowerCase();
+  if (!u || !/^[a-z0-9._-]{3,30}$/.test(u)) {
+    toast("Username tidak valid (3-30 karakter: huruf, angka, titik, strip)", "err");
+    return;
+  }
+  $("customForm").classList.remove("open");
+  $("customUser").value = "";
+  createInbox(u, $("customDomain").value);
+});
+
+$("customUser").addEventListener("keydown", e => { if (e.key === "Enter") $("customSave").click(); });
+$("closeViewer").addEventListener("click", closeViewer);
+$("deleteBtn").addEventListener("click", deleteSelected);
+document.querySelectorAll(".vtab").forEach(tab => { tab.addEventListener("click", () => setViewerTab(tab.dataset.tab)); });
+$("domainSelect").addEventListener("change", function() {
+  if (state.address) { const user = state.address.split("@")[0]; createInbox(user, this.value); }
+});
+
+/* ── LOADING SCREEN ── */
+const LOAD_MSGS = [
+  "Initializing secure inbox…",
+  "Menyiapkan koneksi terenkripsi…",
+  "Menghubungkan ke server…",
+  "Merakit alamat sementaramu…",
+  "Hampir siap…",
+  "Finalizing…",
+];
+let loadMsgIdx = 0, loadBarVal = 0;
+let loadMsgTimer = null, loadBarTimer = null;
+
+function startLoader() {
+  const bar = $("loadBar"), msgEl = $("loadMsg");
+  loadBarTimer = setInterval(() => {
+    loadBarVal = Math.min(loadBarVal + (Math.random() * 4 + 1.5), 92);
+    if (bar) bar.style.width = loadBarVal + "%";
+  }, 80);
+  loadMsgTimer = setInterval(() => {
+    if (!msgEl) return;
+    msgEl.classList.add("fade");
+    setTimeout(() => {
+      loadMsgIdx = (loadMsgIdx + 1) % LOAD_MSGS.length;
+      msgEl.textContent = LOAD_MSGS[loadMsgIdx];
+      msgEl.classList.remove("fade");
+    }, 250);
+  }, 700);
+}
+
+function hideLoader() {
+  clearInterval(loadBarTimer);
+  clearInterval(loadMsgTimer);
+  const bar = $("loadBar");
+  if (bar) bar.style.width = "100%";
+  setTimeout(() => {
+    const screen = $("loadScreen");
+    if (screen) screen.classList.add("hiding");
+    setTimeout(() => { if (screen) screen.remove(); }, 650);
+  }, 260);
+}
+
+async function init() {
+  startLoader();
+  const minDelay = new Promise(r => setTimeout(r, 1800));
+  await loadDomains();
+  const sid = store.get("sid");
+  const addr = store.get("addr");
+  state.sessionId = sid;
+
+  const addrDomain = addr ? addr.split("@")[1] : null;
+  const domainMatch = addrDomain && addrDomain === state.preferredDomain;
+
+  if (addr && domainMatch) {
+    const ok = await loadExisting(addr);
+    if (!ok) await createInbox();
+  } else {
+    if (addr && !domainMatch) store.remove("addr");
+    await createInbox();
+  }
+
+  await minDelay;
+  hideLoader();
+}
+
+init();
+</script>
 </body>
 </html>
