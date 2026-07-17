@@ -13,11 +13,11 @@ export default {
         receivedAt: new Date().toISOString()
       };
 
-      const res = await fetch("https://nageetha.web.id/api/inbound-email", {
+      const res = await fetch("https://noxxyrorr.biz.id/api/inbound-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "User-Agent": "Nagetha-Mail-Worker"
+          "User-Agent": "Noxxyrorr-Mail-Worker"
         },
         body: JSON.stringify(emailData)
       });
@@ -35,7 +35,7 @@ export default {
     if (url.pathname === "/health") {
       return new Response(JSON.stringify({
         status: "ok",
-        worker: "nagetha-email-worker",
+        worker: "noxxy-email-worker",
         time: new Date().toISOString()
       }), {
         headers: { "Content-Type": "application/json" }
