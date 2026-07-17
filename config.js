@@ -1,1 +1,37 @@
-function _0x1d1f(_0x3d4ea1,_0x28a85e){var _0x48ece1=_0x48ec();return _0x1d1f=function(_0x1d1fff,_0x4037e7){_0x1d1fff=_0x1d1fff-0xb1;var _0xf0c5c1=_0x48ece1[_0x1d1fff];return _0xf0c5c1;},_0x1d1f(_0x3d4ea1,_0x28a85e);}var _0x27893d=_0x1d1f;(function(_0x159bad,_0x29e952){var _0x5da814=_0x1d1f,_0x20572f=_0x159bad();while(!![]){try{var _0x1733c2=-parseInt(_0x5da814(0xb7))/0x1+-parseInt(_0x5da814(0xc4))/0x2+parseInt(_0x5da814(0xc7))/0x3*(parseInt(_0x5da814(0xb8))/0x4)+-parseInt(_0x5da814(0xb9))/0x5+-parseInt(_0x5da814(0xc2))/0x6*(-parseInt(_0x5da814(0xbf))/0x7)+-parseInt(_0x5da814(0xb2))/0x8*(-parseInt(_0x5da814(0xb6))/0x9)+-parseInt(_0x5da814(0xb1))/0xa*(-parseInt(_0x5da814(0xb3))/0xb);if(_0x1733c2===_0x29e952)break;else _0x20572f['push'](_0x20572f['shift']());}catch(_0x28d4d4){_0x20572f['push'](_0x20572f['shift']());}}}(_0x48ec,0xc7237),module[_0x27893d(0xbd)]={'app':{'name':_0x27893d(0xbc),'version':'1.0.0','secret':process[_0x27893d(0xbb)][_0x27893d(0xba)]||_0x27893d(0xbe)},'mongodb':{'uri':process[_0x27893d(0xbb)][_0x27893d(0xc0)]||'mongodb+srv://Vercel-Admin-tempmail:IWaNwMRaVfvLNSk7@tempmail.7vin9l1.mongodb.net/?retryWrites=true&w=majority'},'cloudflare':{'workerEndpoint':_0x27893d(0xb5),'workerSecret':process['env']['WORKER_SECRET']||''},'domains':[_0x27893d(0xc3)],'inbox':{'expirationHours':0x18,'maxEmailsPerInbox':0x3e8,'maxInboxPerIP':0x32},'rateLimit':{'windowMs':0xf*0x3c*0x3e8,'max':0x64},'admin':{'username':process[_0x27893d(0xbb)][_0x27893d(0xc6)]||_0x27893d(0xc5),'password':process[_0x27893d(0xbb)][_0x27893d(0xc1)]||_0x27893d(0xb4)}});function _0x48ec(){var _0x3e9296=['10326ffghFv','nageetha.web.id','2699836mxgOfs','admin','ADMIN_USER','3aZXziX','9701980UmGeir','206536mTYuFn','22GEVAGp','nagetha_admin_2026','/api/inbound-email','99LnHLjL','893082VHtxyA','6466708KMbvLE','6243900NGRaVS','JWT_SECRET','env','NAGETHA','exports','nagetha_secret_key_2024','1897IeeUIo','MONGODB_URI','ADMIN_PASS'];_0x48ec=function(){return _0x3e9296;};return _0x48ec();}
+module.exports = {
+  app: {
+    name: "NOXXY",
+    version: "1.0.0",
+    secret: process.env.JWT_SECRET || "noxxy_secret_key_2024"
+  },
+
+  mongodb: {
+    uri: process.env.MONGODB_URI || "mongodb+srv://Vercel-Admin-tempmail:IWaNwMRaVfvLNSk7@tempmail.7vin9l1.mongodb.net/?retryWrites=true&w=majority"
+  },
+
+  cloudflare: {
+    workerEndpoint: "/api/inbound-email",
+    workerSecret: process.env.WORKER_SECRET || ""
+  },
+
+  domains: [
+    "noxxyrorr.biz.id"
+  ],
+
+  inbox: {
+    expirationHours: 24,
+    maxEmailsPerInbox: 1000,
+    maxInboxPerIP: 50
+  },
+
+  rateLimit: {
+    windowMs: 15 * 60 * 1000,
+    max: 100
+  },
+
+  admin: {
+    username: process.env.ADMIN_USER || "admin",
+    password: process.env.ADMIN_PASS || "noxxy_admin_2026"
+  }
+};
+//
