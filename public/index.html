@@ -12,7 +12,7 @@
   <link rel="canonical" href="https://nagetha.vtech.biz.id/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://nagetha.vtech.biz.id/" />
-  <meta property="og:title" content="NOXXY — Free Temporary Email, No Signup" />
+  <meta property="og:title" content="NOXXY — Free Temporary Email" />
   <meta property="og:description" content="Get a free disposable temporary email address instantly. Real-time inbox, no registration required." />
   <meta property="og:image" content="https://nagetha.vtech.biz.id/favicon.svg" />
   <meta property="og:site_name" content="NOXXY TECH" />
@@ -844,7 +844,7 @@
     .viewer-body iframe {
       width: 100%;
       border: none;
-      min-height: 320px;
+      min-height: 200px;
       background: #fff;
       display: block;
     }
@@ -1505,6 +1505,13 @@ function openViewer(email) {
     const blob = new Blob([email.html], { type: "text/html" });
     frame.src = URL.createObjectURL(blob);
     frame.style.display = "block";
+    frame.onload = () => {
+      try {
+        const doc = frame.contentWindow.document;
+        const h = Math.max(doc.documentElement.scrollHeight, doc.body ? doc.body.scrollHeight : 0);
+        frame.style.height = h + "px";
+      } catch { frame.style.height = "500px"; }
+    };
   } else {
     frame.style.display = "none";
   }
