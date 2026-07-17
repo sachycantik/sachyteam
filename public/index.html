@@ -204,7 +204,7 @@
     }
 
     .logo-img {
-      height: 42px;
+      height: 26px;
       width: auto;
       display: block;
       filter: drop-shadow(0 0 12px rgba(217,70,239,0.25));
@@ -595,7 +595,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
     }
 
     .inbox-count {
@@ -605,6 +607,19 @@
       color: var(--text-3);
       text-transform: uppercase;
       letter-spacing: 0.12em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .inbox-count .count-badge {
+      background: var(--grad-brand);
+      color: #05050a;
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 1px 7px;
+      border-radius: 100px;
+      letter-spacing: 0;
     }
 
     /* ── EMAIL CARDS ── */
@@ -612,11 +627,26 @@
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--r);
-      padding: 15px 18px;
-      margin-bottom: 8px;
+      padding: 14px 16px 14px 14px;
+      margin-bottom: 9px;
       cursor: pointer;
       transition: all 0.18s;
       backdrop-filter: blur(8px);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .email-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(217,70,239,0.06), rgba(34,211,238,0.06));
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
     }
 
     .email-card:hover {
@@ -626,10 +656,31 @@
       box-shadow: var(--shadow-sm);
     }
 
+    .email-card:hover::before { opacity: 1; }
+
     .email-card.unread { border-left: 3px solid var(--magenta); }
     .email-card.active { border-color: var(--border-lg); background: rgba(30,20,40,0.9); box-shadow: 0 0 0 3px rgba(217,70,239,0.08); }
 
-    .card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+    .card-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 14px;
+      color: #05050a;
+      background: var(--grad-brand);
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-body { flex: 1; min-width: 0; position: relative; z-index: 1; }
+
+    .card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3px; gap: 8px; }
 
     .card-sender {
       font-size: 14px;
@@ -640,9 +691,11 @@
       white-space: nowrap;
       min-width: 0;
       flex: 1;
+      display: flex;
+      align-items: center;
     }
 
-    .card-time { font-size: 11px; color: var(--text-3); flex-shrink: 0; font-family: var(--mono); }
+    .card-time { font-size: 10.5px; color: var(--text-3); flex-shrink: 0; font-family: var(--mono); }
 
     .card-subject {
       font-size: 13.5px;
@@ -656,9 +709,19 @@
 
     .card-preview { font-size: 12px; color: var(--text-3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
+    .unread-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--magenta);
+      box-shadow: 0 0 6px var(--magenta);
+      flex-shrink: 0;
+      margin-left: 6px;
+    }
+
     .spam-tag {
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: 9.5px;
       padding: 1px 7px;
       background: rgba(245,158,11,0.1);
       color: var(--gold);
@@ -666,6 +729,7 @@
       border-radius: 3px;
       margin-left: 6px;
       font-weight: 600;
+      flex-shrink: 0;
     }
 
     /* ── EMAIL VIEWER ── */
@@ -673,18 +737,28 @@
       background: rgba(14,14,24,0.92);
       border: 1px solid var(--border-md);
       border-radius: var(--r-lg);
-      margin-bottom: 10px;
+      margin-bottom: 14px;
       overflow: hidden;
       display: none;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+
+    .email-viewer::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--grad-brand);
+      z-index: 2;
     }
 
     .email-viewer.open { display: block; }
 
     .viewer-header {
-      padding: 18px 20px;
+      padding: 20px 20px 16px;
       border-bottom: 1px solid var(--border);
       display: flex;
       align-items: flex-start;
@@ -693,26 +767,66 @@
       background: rgba(255,255,255,0.015);
     }
 
-    .viewer-meta { flex: 1; min-width: 0; }
+    .viewer-meta { flex: 1; min-width: 0; display: flex; gap: 12px; align-items: flex-start; }
 
-    .viewer-subject { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 6px; line-height: 1.4; }
-    .viewer-from { font-size: 12.5px; color: var(--text-2); margin-bottom: 2px; font-family: var(--mono); }
-    .viewer-date { font-size: 11.5px; color: var(--text-3); font-family: var(--mono); }
+    .viewer-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 15px;
+      color: #05050a;
+      background: var(--grad-brand);
+      margin-top: 1px;
+    }
+
+    .viewer-meta-text { min-width: 0; flex: 1; }
+
+    .viewer-subject { font-family: var(--display); font-size: 14.5px; font-weight: 700; color: var(--text); margin-bottom: 7px; line-height: 1.4; letter-spacing: 0.01em; }
+    .viewer-from { font-size: 12.5px; color: var(--text-2); margin-bottom: 3px; font-family: var(--mono); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .viewer-date { font-size: 11px; color: var(--text-3); font-family: var(--mono); }
     .viewer-actions { display: flex; gap: 6px; flex-shrink: 0; }
+
+    .icon-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      color: var(--text-2);
+      transition: all 0.15s;
+      flex-shrink: 0;
+    }
+
+    .icon-btn:hover { background: rgba(255,255,255,0.06); color: var(--text); border-color: var(--border-md); }
+    .icon-btn.danger:hover { background: var(--danger); color: #05050a; border-color: var(--danger); }
+    .icon-btn:active { transform: scale(0.92); }
 
     .viewer-tabs {
       display: flex;
-      padding: 10px 20px 0;
+      padding: 0 20px;
       border-bottom: 1px solid var(--border);
-      gap: 0;
+      gap: 4px;
       background: rgba(255,255,255,0.01);
     }
 
     .vtab {
-      padding: 7px 14px;
+      padding: 10px 16px;
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
       color: var(--text-3);
       background: transparent;
       border: none;
@@ -722,40 +836,80 @@
       transition: all 0.15s;
     }
 
+    .vtab:hover { color: var(--text-2); }
     .vtab.active { color: var(--cyan); border-bottom-color: var(--cyan); }
 
-    .viewer-body { position: relative; }
+    .viewer-body { position: relative; background: #0a0a12; }
 
-    .viewer-body iframe { width: 100%; border: none; min-height: 300px; background: #fff; display: block; }
+    .viewer-body iframe {
+      width: 100%;
+      border: none;
+      min-height: 320px;
+      background: #fff;
+      display: block;
+    }
 
     .viewer-text {
       padding: 20px;
       font-family: var(--mono);
       font-size: 12.5px;
       color: var(--text-2);
-      line-height: 1.8;
+      line-height: 1.85;
       white-space: pre-wrap;
       word-break: break-word;
       display: none;
+      max-height: 460px;
+      overflow-y: auto;
     }
 
+    .viewer-text::-webkit-scrollbar { width: 8px; }
+    .viewer-text::-webkit-scrollbar-track { background: transparent; }
+    .viewer-text::-webkit-scrollbar-thumb { background: var(--border-md); border-radius: 8px; }
+
     /* ── EMPTY STATE ── */
-    .empty { text-align: center; padding: 60px 20px; }
+    .empty {
+      text-align: center;
+      padding: 54px 24px;
+      background: var(--bg-card);
+      border: 1px dashed var(--border);
+      border-radius: var(--r-lg);
+    }
+
+    .empty-icon-wrap {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 18px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(217,70,239,0.06);
+      border: 1px solid var(--border-md);
+      position: relative;
+    }
+
+    .empty-icon-wrap::after {
+      content: "";
+      position: absolute;
+      inset: -6px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      opacity: 0.5;
+    }
 
     .empty-emoji {
-      font-size: 46px;
+      font-size: 26px;
       display: block;
-      margin-bottom: 16px;
-      filter: drop-shadow(0 0 18px rgba(217,70,239,0.35));
+      filter: drop-shadow(0 0 10px rgba(217,70,239,0.4));
       animation: emptyFloat 2.5s ease-in-out infinite alternate;
     }
 
     @keyframes emptyFloat {
       0%   { transform: translateY(0) scale(1); }
-      100% { transform: translateY(-12px) scale(1.05); }
+      100% { transform: translateY(-6px) scale(1.05); }
     }
 
-    .empty h3 { font-family: var(--display); font-size: 15px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-2); margin-bottom: 8px; }
+    .empty h3 { font-family: var(--display); font-size: 14.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-2); margin-bottom: 8px; }
 
     .empty p { font-size: 13.5px; color: var(--text-3); line-height: 1.75; max-width: 300px; margin: 0 auto; font-weight: 500; }
 
@@ -873,19 +1027,6 @@
       50%      { transform: scale(1.25); opacity: 1; }
     }
 
-    .load-main-emoji {
-      font-family: var(--display);
-      font-size: 44px;
-      font-weight: 900;
-      position: relative;
-      z-index: 1;
-      background-image: var(--grad-brand);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 8px 22px rgba(217,70,239,0.35));
-    }
-
     .load-sparks { position: absolute; inset: -10px; pointer-events: none; }
 
     .spark {
@@ -973,7 +1114,7 @@
     @media (prefers-reduced-motion: reduce) {
       .blob-1,.blob-2,.blob-3 { animation: none; }
       .bg-canvas::after { animation: none; }
-      .logo-mark { animation: none; }
+      .logo-img { animation: none; }
       .hero-title .shimmer { animation: none; -webkit-text-fill-color: var(--magenta); }
       .hero-title .bounce-word { animation: none; }
       .empty-emoji { animation: none; }
@@ -997,6 +1138,7 @@
       .domain-select { font-size: 12px; padding: 7px 8px; max-width: 110px; }
       .inbox-wrap { padding: 0 12px 40px; }
       .email-card { padding: 12px 13px; }
+      .card-avatar { width: 32px; height: 32px; font-size: 12px; }
       .viewer-header { flex-direction: column; gap: 10px; padding: 14px; }
       .viewer-actions { width: 100%; justify-content: flex-end; }
       .custom-input { width: 130px; }
@@ -1132,15 +1274,16 @@
       <div class="email-viewer" id="emailViewer" role="region" aria-label="Email viewer">
         <div class="viewer-header">
           <div class="viewer-meta">
-            <div class="viewer-subject" id="vSubject"></div>
-            <div class="viewer-from" id="vFrom"></div>
-            <div class="viewer-date" id="vDate"></div>
+            <div class="viewer-avatar" id="vAvatar">?</div>
+            <div class="viewer-meta-text">
+              <div class="viewer-subject" id="vSubject"></div>
+              <div class="viewer-from" id="vFrom"></div>
+              <div class="viewer-date" id="vDate"></div>
+            </div>
           </div>
           <div class="viewer-actions">
-            <button class="btn btn-danger" id="deleteBtn" style="padding:6px 10px;font-size:12px" aria-label="Delete this email">
-              🗑 Hapus
-            </button>
-            <button class="btn btn-ghost" id="closeViewer" style="padding:6px 10px;font-size:12px">✕ Tutup</button>
+            <button class="icon-btn danger" id="deleteBtn" aria-label="Delete this email" title="Hapus">🗑</button>
+            <button class="icon-btn" id="closeViewer" aria-label="Close" title="Tutup">✕</button>
           </div>
         </div>
         <div class="viewer-tabs">
@@ -1156,7 +1299,7 @@
       <!-- Email list -->
       <div id="emailList" role="list" aria-label="Inbox messages">
         <div class="empty" id="emptyState">
-          <span class="empty-emoji" aria-hidden="true">◇</span>
+          <div class="empty-icon-wrap"><span class="empty-emoji" aria-hidden="true">◇</span></div>
           <h3>Masih sepi nih</h3>
           <p>Kirim email ke alamat di atas, lalu tekan tombol Refresh untuk melihatnya di sini.</p>
         </div>
@@ -1202,6 +1345,14 @@ function esc(s) {
   return String(s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 }
 
+function initials(name) {
+  const clean = String(name || "?").trim();
+  if (!clean) return "?";
+  const parts = clean.split(/\s+/).filter(Boolean);
+  if (parts.length >= 2) return (parts[0][0] + parts[1][0]).toUpperCase();
+  return clean.slice(0, 2).toUpperCase();
+}
+
 function relTime(d) {
   const ms = Date.now() - new Date(d);
   if (ms < 60000) return "barusan";
@@ -1222,8 +1373,8 @@ async function api(path, opts = {}) {
 async function loadDomains() {
   try {
     const r = await api("/api/domains");
-    state.domains = r.domains || ["nageetha.web.id"];
-  } catch { state.domains = ["nageetha.web.id"]; }
+    state.domains = r.domains || ["noxxyrorr.biz.id"];
+  } catch { state.domains = ["noxxyrorr.biz.id"]; }
 
   const currentHost = window.location.hostname;
   const matchedDomain = state.domains.find(d => currentHost === d || currentHost.endsWith("." + d));
@@ -1276,7 +1427,7 @@ async function loadExisting(address) {
 
 function renderList() {
   const empty = $("emptyState");
-  $("inboxCount").textContent = `▸ INBOX${state.emails.length ? " (" + state.emails.length + ")" : ""}`;
+  $("inboxCount").innerHTML = `▸ INBOX${state.emails.length ? ` <span class="count-badge">${state.emails.length}</span>` : ""}`;
 
   if (!state.emails.length) {
     list.innerHTML = "";
@@ -1307,12 +1458,15 @@ function renderList() {
 
     card.className = `email-card${isActive ? " active" : ""}${isUnread ? " unread" : ""}`;
     card.innerHTML = `
-      <div class="card-top">
-        <span class="card-sender">${esc(fromName)}${isSpam ? '<span class="spam-tag">SPAM</span>' : ""}</span>
-        <span class="card-time">${relTime(email.receivedAt)}</span>
+      <div class="card-avatar">${esc(initials(fromName))}</div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-sender">${esc(fromName)}${isSpam ? '<span class="spam-tag">SPAM</span>' : ""}${isUnread ? '<span class="unread-dot"></span>' : ""}</span>
+          <span class="card-time">${relTime(email.receivedAt)}</span>
+        </div>
+        <div class="card-subject">${esc(email.subject || "(Tidak ada subjek)")}</div>
+        <div class="card-preview">${esc(preview || "Tidak ada preview")}</div>
       </div>
-      <div class="card-subject">${esc(email.subject || "(Tidak ada subjek)")}</div>
-      <div class="card-preview">${esc(preview || "Tidak ada preview")}</div>
     `;
 
     if (!existing.has(id)) {
@@ -1341,6 +1495,7 @@ async function selectEmail(id) {
 function openViewer(email) {
   const fromName = email.from?.name || email.from?.address || "";
   const fromAddr = email.from?.address || "";
+  $("vAvatar").textContent = initials(fromName);
   $("vSubject").textContent = email.subject || "(Tidak ada subjek)";
   $("vFrom").textContent = `${fromName} <${fromAddr}>`;
   $("vDate").textContent = fullDate(email.receivedAt);
